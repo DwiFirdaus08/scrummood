@@ -17,21 +17,21 @@ export default function ScrumSchedulePage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold tracking-tight">Scrum Schedule</h1>
-        <p className="text-muted-foreground">Manage and schedule your Daily Scrum sessions</p>
+        <h1 className="text-2xl font-bold tracking-tight">Jadwal Scrum</h1>
+        <p className="text-muted-foreground">Kelola dan jadwalkan sesi Daily Scrum Anda</p>
       </div>
 
       <Tabs defaultValue="upcoming">
         <TabsList className="grid w-full grid-cols-2 mb-6">
-          <TabsTrigger value="upcoming">Upcoming Sessions</TabsTrigger>
-          <TabsTrigger value="schedule">Schedule New Session</TabsTrigger>
+          <TabsTrigger value="upcoming">Sesi Mendatang</TabsTrigger>
+          <TabsTrigger value="schedule">Jadwalkan Sesi Baru</TabsTrigger>
         </TabsList>
 
         <TabsContent value="upcoming">
           <Card>
             <CardHeader>
-              <CardTitle>Today's Scrum Sessions</CardTitle>
-              <CardDescription>All scheduled sessions for today</CardDescription>
+              <CardTitle>Scrum Hari Ini</CardTitle>
+              <CardDescription>Semua sesi yang dijadwalkan hari ini</CardDescription>
             </CardHeader>
             <CardContent>
               <UpcomingScrums />
@@ -41,8 +41,8 @@ export default function ScrumSchedulePage() {
           <div className="grid gap-6 md:grid-cols-2 mt-6">
             <Card>
               <CardHeader>
-                <CardTitle>Active Session</CardTitle>
-                <CardDescription>Currently running Scrum session</CardDescription>
+                <CardTitle>Sesi Aktif</CardTitle>
+                <CardDescription>Sesi Scrum yang sedang berjalan</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
@@ -76,13 +76,13 @@ export default function ScrumSchedulePage() {
 
             <Card>
               <CardHeader>
-                <CardTitle>This Week's Schedule</CardTitle>
-                <CardDescription>Overview of all sessions this week</CardDescription>
+                <CardTitle>Jadwal Minggu Ini</CardTitle>
+                <CardDescription>Ikhtisar semua sesi minggu ini</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
                   <div className="p-3 bg-gray-50 rounded-lg">
-                    <h3 className="font-medium">Monday</h3>
+                    <h3 className="font-medium">Senin</h3>
                     <div className="text-sm text-gray-500 mt-1">
                       <div className="flex justify-between">
                         <span>Frontend Team</span>
@@ -96,7 +96,7 @@ export default function ScrumSchedulePage() {
                   </div>
 
                   <div className="p-3 bg-gray-50 rounded-lg">
-                    <h3 className="font-medium">Tuesday</h3>
+                    <h3 className="font-medium">Selasa</h3>
                     <div className="text-sm text-gray-500 mt-1">
                       <div className="flex justify-between">
                         <span>Frontend Team</span>
@@ -114,7 +114,7 @@ export default function ScrumSchedulePage() {
                   </div>
 
                   <div className="p-3 bg-gray-50 rounded-lg">
-                    <h3 className="font-medium">Wednesday</h3>
+                    <h3 className="font-medium">Rabu</h3>
                     <div className="text-sm text-gray-500 mt-1">
                       <div className="flex justify-between">
                         <span>Frontend Team</span>
@@ -136,16 +136,16 @@ export default function ScrumSchedulePage() {
           <div className="grid gap-6 md:grid-cols-2">
             <Card>
               <CardHeader>
-                <CardTitle>Schedule New Session</CardTitle>
-                <CardDescription>Create a new Daily Scrum session</CardDescription>
+                <CardTitle>Jadwalkan Sesi Baru</CardTitle>
+                <CardDescription>Buat sesi Daily Scrum baru</CardDescription>
               </CardHeader>
               <CardContent>
                 <form className="space-y-4">
                   <div className="space-y-2">
-                    <Label htmlFor="team">Team</Label>
+                    <Label htmlFor="team">Tim</Label>
                     <Select>
                       <SelectTrigger id="team">
-                        <SelectValue placeholder="Select team" />
+                        <SelectValue placeholder="Pilih tim" />
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="frontend">Frontend Team</SelectItem>
@@ -158,73 +158,73 @@ export default function ScrumSchedulePage() {
 
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="start-time">Start Time</Label>
+                      <Label htmlFor="start-time">Waktu Mulai</Label>
                       <Input id="start-time" type="time" defaultValue="09:00" />
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="duration">Duration</Label>
+                      <Label htmlFor="duration">Durasi</Label>
                       <Select defaultValue="15">
                         <SelectTrigger id="duration">
-                          <SelectValue placeholder="Select duration" />
+                          <SelectValue placeholder="Pilih durasi" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="10">10 minutes</SelectItem>
-                          <SelectItem value="15">15 minutes</SelectItem>
-                          <SelectItem value="20">20 minutes</SelectItem>
-                          <SelectItem value="30">30 minutes</SelectItem>
+                          <SelectItem value="10">10 menit</SelectItem>
+                          <SelectItem value="15">15 menit</SelectItem>
+                          <SelectItem value="20">20 menit</SelectItem>
+                          <SelectItem value="30">30 menit</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="recurrence">Recurrence</Label>
+                    <Label htmlFor="recurrence">Pengulangan</Label>
                     <Select defaultValue="weekdays">
                       <SelectTrigger id="recurrence">
-                        <SelectValue placeholder="Select recurrence" />
+                        <SelectValue placeholder="Pilih pengulangan" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="once">One time only</SelectItem>
-                        <SelectItem value="daily">Daily</SelectItem>
-                        <SelectItem value="weekdays">Weekdays</SelectItem>
-                        <SelectItem value="weekly">Weekly</SelectItem>
+                        <SelectItem value="once">Sekali saja</SelectItem>
+                        <SelectItem value="daily">Setiap hari</SelectItem>
+                        <SelectItem value="weekdays">Hari kerja</SelectItem>
+                        <SelectItem value="weekly">Mingguan</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="participants">Participants</Label>
+                    <Label htmlFor="participants">Peserta</Label>
                     <Select>
                       <SelectTrigger id="participants">
-                        <SelectValue placeholder="Select participants" />
+                        <SelectValue placeholder="Pilih peserta" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="all">All team members</SelectItem>
-                        <SelectItem value="developers">Developers only</SelectItem>
-                        <SelectItem value="custom">Custom selection</SelectItem>
+                        <SelectItem value="all">Semua anggota tim</SelectItem>
+                        <SelectItem value="developers">Hanya pengembang</SelectItem>
+                        <SelectItem value="custom">Pilihan kustom</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="notification">Notification</Label>
+                    <Label htmlFor="notification">Notifikasi</Label>
                     <Select defaultValue="15">
                       <SelectTrigger id="notification">
-                        <SelectValue placeholder="Select notification time" />
+                        <SelectValue placeholder="Pilih waktu notifikasi" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="5">5 minutes before</SelectItem>
-                        <SelectItem value="10">10 minutes before</SelectItem>
-                        <SelectItem value="15">15 minutes before</SelectItem>
-                        <SelectItem value="30">30 minutes before</SelectItem>
+                        <SelectItem value="5">5 menit sebelum</SelectItem>
+                        <SelectItem value="10">10 menit sebelum</SelectItem>
+                        <SelectItem value="15">15 menit sebelum</SelectItem>
+                        <SelectItem value="30">30 menit sebelum</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
 
                   <Button className="w-full bg-teal-600 hover:bg-teal-700">
                     <CalendarPlus className="mr-2 h-4 w-4" />
-                    Schedule Session
+                    Jadwalkan Sesi
                   </Button>
                 </form>
               </CardContent>
@@ -232,8 +232,8 @@ export default function ScrumSchedulePage() {
 
             <Card>
               <CardHeader>
-                <CardTitle>Select Date</CardTitle>
-                <CardDescription>Choose when to schedule your session</CardDescription>
+                <CardTitle>Pilih Tanggal</CardTitle>
+                <CardDescription>Pilih kapan untuk menjadwalkan sesi Anda</CardDescription>
               </CardHeader>
               <CardContent>
                 <Calendar mode="single" selected={date} onSelect={setDate} className="rounded-md border" />

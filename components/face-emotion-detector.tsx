@@ -39,33 +39,33 @@ export function FaceEmotionDetector({
     const loadModels = async () => {
       try {
         setError(null);
-        setLoadingProgress("Initializing face-api.js...");
-        console.log("Loading face-api.js models...");
+        setLoadingProgress("Menginisialisasi face-api.js...");
+        console.log("Memuat model face-api.js...");
 
-        // Import face-api.js (face-api.js will handle tfjs backend automatically)
+        // Import face-api.js (face-api.js akan mengatur tfjs backend secara otomatis)
         const faceapi = await import("face-api.js");
         faceApiRef.current = faceapi;
 
-        // Load models from public/models
+        // Load models dari public/models
         const MODEL_URL = "/models";
 
-        setLoadingProgress("Loading face detection model...");
+        setLoadingProgress("Memuat model deteksi wajah...");
         if (!faceapi.nets.ssdMobilenetv1.isLoaded) {
           await faceapi.nets.ssdMobilenetv1.loadFromUri(MODEL_URL);
         }
-        console.log("SSD MobileNet model loaded");
+        console.log("Model SSD MobileNet berhasil dimuat");
 
-        setLoadingProgress("Loading facial landmarks model...");
+        setLoadingProgress("Memuat model landmark wajah...");
         if (!faceapi.nets.faceLandmark68Net.isLoaded) {
           await faceapi.nets.faceLandmark68Net.loadFromUri(MODEL_URL);
         }
-        console.log("Face landmarks model loaded");
+        console.log("Model landmark wajah berhasil dimuat");
 
-        setLoadingProgress("Loading face expression model...");
+        setLoadingProgress("Memuat model ekspresi wajah...");
         if (!faceapi.nets.faceExpressionNet.isLoaded) {
           await faceapi.nets.faceExpressionNet.loadFromUri(MODEL_URL);
         }
-        console.log("Face expression model loaded");
+        console.log("Model ekspresi wajah berhasil dimuat");
 
         // Pastikan semua model loaded
         if (
@@ -73,27 +73,27 @@ export function FaceEmotionDetector({
           faceapi.nets.faceLandmark68Net.isLoaded &&
           faceapi.nets.faceExpressionNet.isLoaded
         ) {
-          setLoadingProgress("Models loaded successfully!");
-          console.log("All face-api.js models loaded successfully");
+          setLoadingProgress("Semua model berhasil dimuat!");
+          console.log("Semua model face-api.js berhasil dimuat");
           setIsModelLoaded(true);
         } else {
-          setError("Failed to load all face-api.js models");
+          setError("Gagal memuat semua model face-api.js");
         }
         setLoadingProgress("");
       } catch (err) {
-        console.error("Error loading face-api.js models:", err);
+        console.error("Kesalahan saat memuat model face-api.js:", err);
         setError(
-          `Failed to load AI models: ${
-            err instanceof Error ? err.message : "Unknown error"
+          `Gagal memuat model AI: ${
+            err instanceof Error ? err.message : "Kesalahan tidak diketahui"
           }`
         );
         setLoadingProgress("");
 
-        // Fallback to mock emotions for demo
+        // Fallback ke emosi mock untuk demo
         setTimeout(() => {
           setError(null);
           setIsModelLoaded(true);
-          console.log("Using mock emotion detection for demo");
+          console.log("Menggunakan deteksi emosi mock untuk demo");
         }, 3000);
       }
     };
@@ -346,13 +346,13 @@ export function FaceEmotionDetector({
       {isModelLoaded && isDetecting && !error && (
         <div className="absolute top-2 left-2 bg-green-500 text-white px-2 py-1 rounded text-xs flex items-center">
           <div className="w-2 h-2 bg-white rounded-full animate-pulse mr-1"></div>
-          AI Emotion Detection Active
+          Deteksi Emosi AI Aktif
         </div>
       )}
 
       {!isModelLoaded && !error && !loadingProgress && (
         <div className="absolute top-2 left-2 bg-yellow-500 text-white px-2 py-1 rounded text-xs">
-          Initializing AI...
+          Menginisialisasi AI...
         </div>
       )}
     </div>

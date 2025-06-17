@@ -522,7 +522,7 @@ export default function MeetingPage() {
             {isSpeaking && (
               <Badge variant="outline" className="ml-2 bg-orange-50 text-orange-700 hover:bg-orange-100">
                 <Volume2 className="mr-1 h-3 w-3" />
-                Speaking
+                Berbicara
               </Badge>
             )}
           </div>
@@ -530,11 +530,11 @@ export default function MeetingPage() {
         <div className="flex gap-2">
           <Button variant="outline" size="sm">
             <Settings className="mr-2 h-4 w-4" />
-            Settings
+            Pengaturan
           </Button>
           <Button variant="destructive" size="sm">
             <X className="mr-2 h-4 w-4" />
-            End Meeting
+            Akhiri Rapat
           </Button>
         </div>
       </div>

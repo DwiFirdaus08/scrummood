@@ -14,27 +14,27 @@ const suggestions: Suggestion[] = [
   {
     id: 1,
     type: "break",
-    content: "Team stress levels are rising. Consider taking a 5-minute break.",
-    time: "10 minutes ago",
+    content: "Tingkat stres tim meningkat. Pertimbangkan istirahat 5 menit.",
+    time: "10 menit lalu",
   },
   {
     id: 2,
     type: "discussion",
     content:
-      "Some team members seem frustrated with the current task distribution. Open a discussion about workload balance.",
-    time: "25 minutes ago",
+      "Beberapa anggota tim tampak frustrasi dengan pembagian tugas saat ini. Buka diskusi tentang keseimbangan beban kerja.",
+    time: "25 menit lalu",
   },
   {
     id: 3,
     type: "breathing",
-    content: "Try a 2-minute breathing exercise to reduce tension before continuing the meeting.",
-    time: "40 minutes ago",
+    content: "Coba latihan pernapasan 2 menit untuk mengurangi ketegangan sebelum melanjutkan meeting.",
+    time: "40 menit lalu",
   },
   {
     id: 4,
     type: "game",
-    content: "Team energy is low. Consider a quick energizer activity to boost mood.",
-    time: "1 hour ago",
+    content: "Energi tim sedang rendah. Coba aktivitas energizer singkat untuk meningkatkan mood.",
+    time: "1 jam lalu",
   },
 ]
 

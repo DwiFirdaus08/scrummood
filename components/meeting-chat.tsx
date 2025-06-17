@@ -24,11 +24,11 @@ export function MeetingChat() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: 1,
-      sender: "System",
+      sender: "Sistem",
       senderInitials: "SYS",
       avatar: "",
-      content: "Meeting started. Welcome to the Frontend Team Daily Scrum!",
-      timestamp: "9:00 AM",
+      content: "Meeting dimulai. Selamat datang di Daily Scrum Tim Frontend!",
+      timestamp: "09.00",
       isSystem: true,
     },
     {
@@ -37,8 +37,8 @@ export function MeetingChat() {
       senderInitials: "JD",
       avatar: "",
       content:
-        "Good morning everyone! Yesterday I completed the login page redesign and started working on the dashboard components.",
-      timestamp: "9:01 AM",
+        "Selamat pagi semuanya! Kemarin saya menyelesaikan desain ulang halaman login dan mulai mengerjakan komponen dashboard.",
+      timestamp: "09.01",
       emotion: "happy",
     },
     {
@@ -47,17 +47,17 @@ export function MeetingChat() {
       senderInitials: "JS",
       avatar: "",
       content:
-        "I've been working on the API integration. Made good progress but still have some issues with error handling.",
-      timestamp: "9:02 AM",
+        "Saya sedang mengerjakan integrasi API. Sudah ada kemajuan, tapi masih ada beberapa masalah dengan penanganan error.",
+      timestamp: "09.02",
       emotion: "neutral",
     },
     {
       id: 4,
-      sender: "System",
+      sender: "Sistem",
       senderInitials: "SYS",
       avatar: "",
-      content: "Emotion Alert: Mike's stress level has increased when discussing API integration.",
-      timestamp: "9:03 AM",
+      content: "Peringatan Emosi: Tingkat stres Mike meningkat saat membahas integrasi API.",
+      timestamp: "09.03",
       isSystem: true,
     },
     {
@@ -66,8 +66,8 @@ export function MeetingChat() {
       senderInitials: "MJ",
       avatar: "",
       content:
-        "I'm still struggling with the authentication flow. The documentation is not very clear and I'm hitting some roadblocks.",
-      timestamp: "9:03 AM",
+        "Saya masih kesulitan dengan alur autentikasi. Dokumentasinya kurang jelas dan saya menemui beberapa kendala.",
+      timestamp: "09.03",
       emotion: "stressed",
     },
     {
@@ -76,17 +76,17 @@ export function MeetingChat() {
       senderInitials: "SW",
       avatar: "",
       content:
-        "I can help with that, Mike. I implemented something similar last month. Let's pair program after the meeting.",
-      timestamp: "9:04 AM",
+        "Saya bisa bantu, Mike. Saya pernah mengerjakan hal serupa bulan lalu. Yuk pair programming setelah meeting.",
+      timestamp: "09.04",
       emotion: "happy",
     },
     {
       id: 7,
-      sender: "System",
+      sender: "Sistem",
       senderInitials: "SYS",
       avatar: "",
-      content: "Suggestion: Consider taking a 5-minute break to reduce team stress levels.",
-      timestamp: "9:05 AM",
+      content: "Saran: Pertimbangkan istirahat 5 menit untuk menurunkan tingkat stres tim.",
+      timestamp: "09.05",
       isSystem: true,
     },
   ])
@@ -170,13 +170,18 @@ export function MeetingChat() {
             <Smile className="h-5 w-5" />
           </Button>
           <Input
-            placeholder="Type your message..."
+            placeholder="Ketik pesan Anda..."
             value={newMessage}
             onChange={(e) => setNewMessage(e.target.value)}
             className="flex-1"
           />
-          <Button type="submit" className="flex-shrink-0 bg-teal-600 hover:bg-teal-700" disabled={!newMessage.trim()}>
+          <Button
+            type="submit"
+            className="flex-shrink-0 bg-teal-600 hover:bg-teal-700"
+            disabled={!newMessage.trim()}
+          >
             <Send className="h-4 w-4" />
+            Kirim
           </Button>
         </form>
       </div>

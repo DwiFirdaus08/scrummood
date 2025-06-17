@@ -26,27 +26,27 @@ export default function JournalPage() {
     <div className="space-y-6 p-6">
       {/* Header */}
       <div>
-        <h1 className="text-3xl font-bold tracking-tight">Daily Journal</h1>
-        <p className="text-muted-foreground mt-1">Reflect on your daily experiences and track your emotional journey</p>
+        <h1 className="text-3xl font-bold tracking-tight">Jurnal Harian</h1>
+        <p className="text-muted-foreground mt-1">Refleksikan pengalaman harian Anda dan lacak perjalanan emosi Anda</p>
       </div>
 
       <Tabs defaultValue="write" className="w-full">
         <TabsList className="grid w-full grid-cols-4 mb-6">
           <TabsTrigger value="write" className="flex items-center gap-2">
             <BookOpen className="h-4 w-4" />
-            Write Journal
+            Tulis Jurnal
           </TabsTrigger>
           <TabsTrigger value="entries" className="flex items-center gap-2">
             <Calendar className="h-4 w-4" />
-            Past Entries
+            Entri Sebelumnya
           </TabsTrigger>
           <TabsTrigger value="analysis" className="flex items-center gap-2">
             <Brain className="h-4 w-4" />
-            AI Analysis
+            Analisis AI
           </TabsTrigger>
           <TabsTrigger value="insights" className="flex items-center gap-2">
             <TrendingUp className="h-4 w-4" />
-            Personal Insights
+            Wawasan Pribadi
           </TabsTrigger>
         </TabsList>
 

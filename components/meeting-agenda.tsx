@@ -16,38 +16,40 @@ type AgendaItem = {
 }
 
 export function MeetingAgenda() {
-  const [agendaItems, setAgendaItems] = useState<AgendaItem[]>([
-    {
-      id: 1,
-      title: "What did you accomplish yesterday?",
-      duration: 5,
-      isCompleted: true,
-      assignee: "All Team Members",
-    },
-    {
-      id: 2,
-      title: "What are you working on today?",
-      duration: 5,
-      isCompleted: false,
-      assignee: "All Team Members",
-      notes: "Focus on blockers and dependencies",
-    },
-    {
-      id: 3,
-      title: "Any blockers or impediments?",
-      duration: 3,
-      isCompleted: false,
-      assignee: "All Team Members",
-    },
-    {
-      id: 4,
-      title: "API Integration Discussion",
-      duration: 2,
-      isCompleted: false,
-      assignee: "Mike Johnson",
-      notes: "Brief discussion on authentication issues",
-    },
-  ])
+  const [agendaItems, setAgendaItems] = useState<AgendaItem[]>(
+    [
+      {
+        id: 1,
+        title: "Apa yang kamu capai kemarin?",
+        duration: 5,
+        isCompleted: true,
+        assignee: "Semua Anggota Tim",
+      },
+      {
+        id: 2,
+        title: "Apa yang akan kamu kerjakan hari ini?",
+        duration: 5,
+        isCompleted: false,
+        assignee: "Semua Anggota Tim",
+        notes: "Fokus pada hambatan dan ketergantungan",
+      },
+      {
+        id: 3,
+        title: "Ada hambatan atau kendala?",
+        duration: 3,
+        isCompleted: false,
+        assignee: "Semua Anggota Tim",
+      },
+      {
+        id: 4,
+        title: "Diskusi Integrasi API",
+        duration: 2,
+        isCompleted: false,
+        assignee: "Mike Johnson",
+        notes: "Diskusi singkat tentang masalah autentikasi",
+      },
+    ]
+  )
 
   const toggleItemCompletion = (id: number) => {
     setAgendaItems((prev) => prev.map((item) => (item.id === id ? { ...item, isCompleted: !item.isCompleted } : item)))
@@ -62,15 +64,15 @@ export function MeetingAgenda() {
     <div className="space-y-4">
       <div className="flex justify-between items-center">
         <div>
-          <h3 className="font-medium">Daily Scrum Agenda</h3>
+          <h3 className="font-medium">Agenda Daily Scrum</h3>
           <div className="text-sm text-gray-500 flex items-center">
             <Clock className="mr-1 h-4 w-4" />
-            <span>Total Duration: {totalDuration} minutes</span>
+            <span>Total Durasi: {totalDuration} menit</span>
           </div>
         </div>
         <Button variant="outline" size="sm">
           <Plus className="mr-1 h-4 w-4" />
-          Add Item
+          Tambah Agenda
         </Button>
       </div>
 
@@ -103,7 +105,7 @@ export function MeetingAgenda() {
                 </label>
                 <div className="flex justify-between text-sm text-gray-500 mt-1">
                   <span>{item.assignee}</span>
-                  <span>{item.duration} min</span>
+                  <span>{item.duration} mnt</span>
                 </div>
                 {item.notes && <p className="text-sm text-gray-600 mt-2 bg-gray-50 p-2 rounded">{item.notes}</p>}
               </div>

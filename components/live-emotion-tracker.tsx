@@ -26,7 +26,7 @@ export function LiveEmotionTracker({ currentUserEmotions, currentUserFaceDetecte
   const [teamEmotions, setTeamEmotions] = useState([
     {
       id: "user-1",
-      name: "John Doe (You)",
+      name: "John Doe (Anda)",
       avatar: "JD",
       emotions: currentUserEmotions || {
         happy: 0.7,
@@ -107,6 +107,42 @@ export function LiveEmotionTracker({ currentUserEmotions, currentUserFaceDetecte
     }
   }, [currentUserEmotions, currentUserFaceDetected])
 
+  // --- MOCK EMOTION SIMULATION LOGIC FOR DEMO PURPOSES ---
+  useEffect(() => {
+    // Only simulate for non-current users
+    const interval = setInterval(() => {
+      setTeamEmotions((prev) =>
+        prev.map((member) => {
+          if (member.isCurrentUser) return member
+          // Randomly toggle faceDetected (simulate camera on/off)
+          const faceDetected = Math.random() > 0.1
+          // Randomly generate new mock emotions
+          const randomEmotions: EmotionData = {
+            happy: Math.random(),
+            sad: Math.random(),
+            angry: Math.random(),
+            fearful: Math.random(),
+            disgusted: Math.random(),
+            surprised: Math.random(),
+            neutral: Math.random(),
+          }
+          // Normalize so total = 1
+          const sum = Object.values(randomEmotions).reduce((a, b) => a + b, 0)
+          Object.keys(randomEmotions).forEach((key) => {
+            randomEmotions[key as keyof EmotionData] = randomEmotions[key as keyof EmotionData] / sum
+          })
+          return {
+            ...member,
+            emotions: randomEmotions,
+            faceDetected,
+          }
+        })
+      )
+    }, 3000)
+    return () => clearInterval(interval)
+  }, [])
+  // --- END MOCK EMOTION SIMULATION LOGIC ---
+
   const getEmotionColor = (emotion: string) => {
     const colors = {
       happy: "bg-green-500",
@@ -178,18 +214,18 @@ export function LiveEmotionTracker({ currentUserEmotions, currentUserFaceDetecte
             <div>
               <CardTitle className="text-lg flex items-center gap-2">
                 <Brain className="h-5 w-5 text-purple-600" />
-                Live Emotion Analysis
+                Analisis Emosi Langsung
               </CardTitle>
-              <CardDescription>Real-time AI-powered emotion detection</CardDescription>
+              <CardDescription>Deteksi emosi AI secara waktu nyata</CardDescription>
             </div>
             <div className="flex items-center gap-2">
               <Badge variant="outline" className="bg-green-50 text-green-700">
                 <Users className="mr-1 h-3 w-3" />
-                {activeMembersCount} Active
+                {activeMembersCount} Aktif
               </Badge>
               <Badge variant="outline" className="bg-purple-50 text-purple-700">
                 <TrendingUp className="mr-1 h-3 w-3" />
-                AI Powered
+                Didukung AI
               </Badge>
             </div>
           </div>
@@ -197,7 +233,7 @@ export function LiveEmotionTracker({ currentUserEmotions, currentUserFaceDetecte
         <CardContent>
           {teamAverage ? (
             <div className="space-y-3">
-              <h4 className="font-medium text-sm">Team Emotional State</h4>
+              <h4 className="font-medium text-sm">Keadaan Emosi Tim</h4>
               <div className="grid grid-cols-2 gap-3">
                 {Object.entries(teamAverage)
                   .sort(([, a], [, b]) => b - a)
@@ -219,7 +255,7 @@ export function LiveEmotionTracker({ currentUserEmotions, currentUserFaceDetecte
           ) : (
             <div className="text-center py-4 text-muted-foreground">
               <Brain className="h-8 w-8 mx-auto mb-2 opacity-50" />
-              <p className="text-sm">Enable cameras for AI emotion detection</p>
+              <p className="text-sm">Aktifkan kamera untuk deteksi emosi AI</p>
             </div>
           )}
         </CardContent>
@@ -248,16 +284,16 @@ export function LiveEmotionTracker({ currentUserEmotions, currentUserFaceDetecte
                         {member.faceDetected ? (
                           <Badge variant="outline" className="bg-green-50 text-green-700 text-xs">
                             <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-1"></div>
-                            AI Active
+                            AI Aktif
                           </Badge>
                         ) : (
                           <Badge variant="outline" className="bg-gray-50 text-gray-500 text-xs">
-                            No Face
+                            Tidak Ada Wajah
                           </Badge>
                         )}
                         {member.isCurrentUser && (
                           <Badge variant="outline" className="bg-purple-50 text-purple-700 text-xs">
-                            You
+                            Anda
                           </Badge>
                         )}
                       </div>
@@ -297,7 +333,7 @@ export function LiveEmotionTracker({ currentUserEmotions, currentUserFaceDetecte
                   </div>
                 ) : (
                   <div className="text-center py-2 text-muted-foreground">
-                    <p className="text-xs">Camera not active</p>
+                    <p className="text-xs">Kamera tidak aktif</p>
                   </div>
                 )}
               </CardContent>
@@ -311,7 +347,7 @@ export function LiveEmotionTracker({ currentUserEmotions, currentUserFaceDetecte
         <CardHeader className="pb-3">
           <CardTitle className="text-base flex items-center gap-2">
             <Clock className="h-4 w-4" />
-            Real-time Insights
+            Insight Waktu Nyata
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -319,28 +355,28 @@ export function LiveEmotionTracker({ currentUserEmotions, currentUserFaceDetecte
             {activeMembersCount > 0 ? (
               <>
                 <div className="p-2 bg-blue-50 border border-blue-200 rounded text-xs text-blue-700">
-                  🤖 {activeMembersCount} team members are being monitored by AI emotion detection
+                  🤖 {activeMembersCount} anggota tim sedang dipantau oleh deteksi emosi AI
                 </div>
                 {teamAverage && teamAverage.happy > 0.6 && (
                   <div className="p-2 bg-green-50 border border-green-200 rounded text-xs text-green-700">
-                    ✨ Team mood is very positive! Great time for creative discussions.
+                    ✨ Mood tim sangat positif! Waktu yang tepat untuk diskusi kreatif.
                   </div>
                 )}
                 {teamAverage && teamAverage.sad > 0.3 && (
                   <div className="p-2 bg-yellow-50 border border-yellow-200 rounded text-xs text-yellow-700">
-                    ⚠️ Some team members seem stressed. Consider taking a break.
+                    ⚠️ Beberapa anggota tim tampak stres. Pertimbangkan untuk istirahat sejenak.
                   </div>
                 )}
                 {currentUserFaceDetected && currentUserEmotions && (
                   <div className="p-2 bg-purple-50 border border-purple-200 rounded text-xs text-purple-700">
-                    👤 Your emotion: {getDominantEmotion(currentUserEmotions)[0]} (
+                    👤 Emosi Anda: {getDominantEmotion(currentUserEmotions)[0]} (
                     {Math.round(getDominantEmotion(currentUserEmotions)[1] * 100)}%)
                   </div>
                 )}
               </>
             ) : (
               <div className="p-2 bg-gray-50 border border-gray-200 rounded text-xs text-gray-600">
-                💡 Enable cameras to start AI-powered emotion analysis
+                💡 Aktifkan kamera untuk memulai analisis emosi berbasis AI
               </div>
             )}
           </div>

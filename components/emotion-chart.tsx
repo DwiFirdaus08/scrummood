@@ -10,7 +10,7 @@ export function EmotionChart() {
     if (!ctx) return
 
     // Mock data for the chart
-    const labels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+    const labels = ["Sen", "Sel", "Rab", "Kam", "Jum", "Sab", "Min"]
     const happyData = [65, 70, 62, 80, 75, 68, 72]
     const neutralData = [45, 52, 48, 40, 42, 50, 55]
     const stressData = [30, 25, 40, 20, 35, 30, 25]
@@ -61,11 +61,11 @@ export function EmotionChart() {
     // Draw legend
     const legendY = 15
     const emotions = [
-      { name: "Happy", color: "#4ade80" },
-      { name: "Neutral", color: "#60a5fa" },
-      { name: "Stress", color: "#facc15" },
-      { name: "Sad", color: "#94a3b8" },
-      { name: "Angry", color: "#f87171" },
+      { name: "Bahagia", color: "#4ade80" },
+      { name: "Netral", color: "#60a5fa" },
+      { name: "Stres", color: "#facc15" },
+      { name: "Sedih", color: "#94a3b8" },
+      { name: "Marah", color: "#f87171" },
     ]
 
     emotions.forEach((emotion, i) => {

@@ -22,54 +22,54 @@ type Participant = {
 const participants: Participant[] = [
   {
     id: 1,
-    name: "John Doe (You)",
-    initials: "JD",
+    name: "Budi Santoso (Anda)",
+    initials: "BS",
     avatar: "",
-    role: "Team Member",
+    role: "Anggota Tim",
     isSpeaking: true,
     isMuted: false,
     isVideoOn: true,
     isScreenSharing: false,
-    joinTime: "9:00 AM",
+    joinTime: "09.00",
     dominantEmotion: "happy",
   },
   {
     id: 2,
-    name: "Jane Smith",
-    initials: "JS",
+    name: "Siti Aminah",
+    initials: "SA",
     avatar: "",
-    role: "Team Lead",
+    role: "Ketua Tim",
     isSpeaking: false,
     isMuted: false,
     isVideoOn: true,
     isScreenSharing: false,
-    joinTime: "8:58 AM",
+    joinTime: "08.58",
     dominantEmotion: "neutral",
   },
   {
     id: 3,
-    name: "Mike Johnson",
-    initials: "MJ",
+    name: "Andi Wijaya",
+    initials: "AW",
     avatar: "",
-    role: "Developer",
+    role: "Pengembang",
     isSpeaking: false,
     isMuted: false,
     isVideoOn: true,
     isScreenSharing: false,
-    joinTime: "9:01 AM",
+    joinTime: "09.01",
     dominantEmotion: "stressed",
   },
   {
     id: 4,
-    name: "Sarah Williams",
-    initials: "SW",
+    name: "Rina Dewi",
+    initials: "RD",
     avatar: "",
-    role: "Designer",
+    role: "Desainer",
     isSpeaking: false,
     isMuted: true,
     isVideoOn: false,
     isScreenSharing: false,
-    joinTime: "9:02 AM",
+    joinTime: "09.02",
     dominantEmotion: "happy",
   },
 ]
@@ -105,12 +105,27 @@ export function LiveParticipants() {
     }
   }
 
+  const getEmotionLabel = (emotion: Participant["dominantEmotion"]) => {
+    switch (emotion) {
+      case "happy":
+        return "Senang"
+      case "neutral":
+        return "Netral"
+      case "stressed":
+        return "Stres"
+      case "sad":
+        return "Sedih"
+      case "angry":
+        return "Marah"
+    }
+  }
+
   return (
     <div className="space-y-4">
       <div className="flex justify-between items-center">
-        <div className="text-sm font-medium">4 Participants</div>
-        <Button variant="outline" size="sm">
-          Invite
+        <div className="text-sm font-medium">4 Peserta</div>
+        <Button size="sm" variant="outline">
+          Undang
         </Button>
       </div>
 
@@ -133,14 +148,14 @@ export function LiveParticipants() {
                   {participant.name}
                   {participant.id === 1 && (
                     <Badge variant="outline" className="ml-2 text-xs">
-                      You
+                      Anda
                     </Badge>
                   )}
                 </div>
                 <div className="text-xs text-gray-500 flex items-center space-x-2">
                   <span>{participant.role}</span>
                   <span>•</span>
-                  <span>Joined {participant.joinTime}</span>
+                  <span>Bergabung {participant.joinTime}</span>
                 </div>
               </div>
             </div>
@@ -150,7 +165,7 @@ export function LiveParticipants() {
                 className={`text-xs px-1.5 py-0.5 rounded-full flex items-center ${getEmotionColor(participant.dominantEmotion)}`}
               >
                 <span className="mr-1">{getEmotionEmoji(participant.dominantEmotion)}</span>
-                <span className="capitalize">{participant.dominantEmotion}</span>
+                <span className="capitalize">{getEmotionLabel(participant.dominantEmotion)}</span>
               </div>
 
               {participant.isMuted ? (

@@ -8,15 +8,15 @@ export default function HistoryPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold tracking-tight">Session History</h1>
-        <p className="text-muted-foreground">Review past Scrum sessions and emotional data</p>
+        <h1 className="text-2xl font-bold tracking-tight">Riwayat Sesi</h1>
+        <p className="text-muted-foreground">Tinjau sesi Scrum sebelumnya dan data emosi</p>
       </div>
 
       <div className="flex flex-col sm:flex-row justify-between gap-4">
         <div className="flex gap-2">
           <Button variant="outline">
             <Calendar className="mr-2 h-4 w-4" />
-            This Week
+            Minggu Ini
           </Button>
           <Button variant="outline">
             <Filter className="mr-2 h-4 w-4" />
@@ -25,23 +25,23 @@ export default function HistoryPage() {
         </div>
         <Button variant="outline">
           <Download className="mr-2 h-4 w-4" />
-          Export Data
+          Ekspor Data
         </Button>
       </div>
 
       <Tabs defaultValue="all">
         <TabsList className="grid w-full grid-cols-4 mb-6">
-          <TabsTrigger value="all">All Sessions</TabsTrigger>
-          <TabsTrigger value="frontend">Frontend Team</TabsTrigger>
-          <TabsTrigger value="backend">Backend Team</TabsTrigger>
-          <TabsTrigger value="design">Design Team</TabsTrigger>
+          <TabsTrigger value="all">Semua Sesi</TabsTrigger>
+          <TabsTrigger value="frontend">Tim Frontend</TabsTrigger>
+          <TabsTrigger value="backend">Tim Backend</TabsTrigger>
+          <TabsTrigger value="design">Tim Desain</TabsTrigger>
         </TabsList>
 
         <TabsContent value="all">
           <Card>
             <CardHeader>
-              <CardTitle>All Sessions</CardTitle>
-              <CardDescription>Complete history of all team sessions</CardDescription>
+              <CardTitle>Semua Sesi</CardTitle>
+              <CardDescription>Riwayat lengkap semua sesi tim</CardDescription>
             </CardHeader>
             <CardContent>
               <SessionHistory />
@@ -52,8 +52,8 @@ export default function HistoryPage() {
         <TabsContent value="frontend">
           <Card>
             <CardHeader>
-              <CardTitle>Frontend Team Sessions</CardTitle>
-              <CardDescription>History of Frontend Team sessions</CardDescription>
+              <CardTitle>Riwayat Sesi Tim Frontend</CardTitle>
+              <CardDescription>Riwayat sesi Tim Frontend</CardDescription>
             </CardHeader>
             <CardContent>
               <SessionHistory team="frontend" />
@@ -64,8 +64,8 @@ export default function HistoryPage() {
         <TabsContent value="backend">
           <Card>
             <CardHeader>
-              <CardTitle>Backend Team Sessions</CardTitle>
-              <CardDescription>History of Backend Team sessions</CardDescription>
+              <CardTitle>Riwayat Sesi Tim Backend</CardTitle>
+              <CardDescription>Riwayat sesi Tim Backend</CardDescription>
             </CardHeader>
             <CardContent>
               <SessionHistory team="backend" />
@@ -76,8 +76,8 @@ export default function HistoryPage() {
         <TabsContent value="design">
           <Card>
             <CardHeader>
-              <CardTitle>Design Team Sessions</CardTitle>
-              <CardDescription>History of Design Team sessions</CardDescription>
+              <CardTitle>Riwayat Sesi Tim Desain</CardTitle>
+              <CardDescription>Riwayat sesi Tim Desain</CardDescription>
             </CardHeader>
             <CardContent>
               <SessionHistory team="design" />

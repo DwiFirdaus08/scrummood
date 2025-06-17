@@ -13,14 +13,14 @@ export default function LoginPage() {
             </div>
             <h1 className="text-3xl font-bold text-teal-700">ScrumMood</h1>
           </Link>
-          <p className="text-gray-600 mt-2">Welcome back! Sign in to your account to continue.</p>
+          <p className="text-gray-600 mt-2">Selamat datang kembali! Masuk ke akun Anda untuk melanjutkan.</p>
         </div>
         <LoginForm />
         <div className="text-center mt-6">
           <p className="text-sm text-gray-600">
-            Don't have an account?{" "}
+            Belum punya akun?{" "}
             <Link href="/register" className="text-teal-600 hover:text-teal-700 font-medium">
-              Sign up here
+              Daftar di sini
             </Link>
           </p>
         </div>

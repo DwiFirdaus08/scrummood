@@ -27,10 +27,10 @@ type Session = {
 const sessions: Session[] = [
   {
     id: 1,
-    team: "Frontend Team",
-    date: "April 28, 2023",
-    time: "9:00 AM",
-    duration: "15 minutes",
+    team: "Tim Frontend",
+    date: "2023-04-28",
+    time: "09.00",
+    duration: "15 menit",
     participants: 5,
     emotionSummary: {
       happy: 60,
@@ -42,10 +42,10 @@ const sessions: Session[] = [
   },
   {
     id: 2,
-    team: "Backend Team",
-    date: "April 28, 2023",
-    time: "10:00 AM",
-    duration: "20 minutes",
+    team: "Tim Backend",
+    date: "2023-04-28",
+    time: "10.00",
+    duration: "20 menit",
     participants: 6,
     emotionSummary: {
       happy: 45,
@@ -57,10 +57,10 @@ const sessions: Session[] = [
   },
   {
     id: 3,
-    team: "Design Team",
-    date: "April 28, 2023",
-    time: "11:00 AM",
-    duration: "15 minutes",
+    team: "Tim Desain",
+    date: "2023-04-28",
+    time: "11.00",
+    duration: "15 menit",
     participants: 4,
     emotionSummary: {
       happy: 70,
@@ -72,10 +72,10 @@ const sessions: Session[] = [
   },
   {
     id: 4,
-    team: "Frontend Team",
-    date: "April 27, 2023",
-    time: "9:00 AM",
-    duration: "15 minutes",
+    team: "Tim Frontend",
+    date: "2023-04-27",
+    time: "09.00",
+    duration: "15 menit",
     participants: 5,
     emotionSummary: {
       happy: 55,
@@ -87,10 +87,10 @@ const sessions: Session[] = [
   },
   {
     id: 5,
-    team: "Backend Team",
-    date: "April 27, 2023",
-    time: "10:00 AM",
-    duration: "15 minutes",
+    team: "Tim Backend",
+    date: "2023-04-27",
+    time: "10.00",
+    duration: "15 menit",
     participants: 6,
     emotionSummary: {
       happy: 40,
@@ -111,9 +111,9 @@ export function SessionHistory({ team }: SessionHistoryProps) {
     const date = new Date(dateString)
     return {
       day: date.getDate(),
-      month: date.toLocaleDateString("en-US", { month: "short" }),
+      month: date.toLocaleDateString("id-ID", { month: "short" }),
       year: date.getFullYear(),
-      weekday: date.toLocaleDateString("en-US", { weekday: "short" }),
+      weekday: date.toLocaleDateString("id-ID", { weekday: "short" }),
     }
   }
 
@@ -160,7 +160,7 @@ export function SessionHistory({ team }: SessionHistoryProps) {
                       </div>
                       <div className="flex items-center gap-2">
                         <Users className="h-4 w-4 text-gray-400" />
-                        <span>{session.participants} participants</span>
+                        <span>{session.participants} anggota</span>
                       </div>
                     </div>
                   </div>
@@ -170,19 +170,19 @@ export function SessionHistory({ team }: SessionHistoryProps) {
                 <div className="flex flex-wrap gap-2 lg:flex-col lg:min-w-[140px]">
                   <Button variant="outline" size="sm" className="flex-1 lg:flex-none">
                     <Eye className="mr-2 h-4 w-4" />
-                    View Details
+                    Lihat Detail
                   </Button>
                   <Button variant="outline" size="sm" className="flex-1 lg:flex-none">
                     <BarChart className="mr-2 h-4 w-4" />
-                    Analytics
+                    Analitik
                   </Button>
                   <Button variant="outline" size="sm" className="flex-1 lg:flex-none">
                     <Download className="mr-2 h-4 w-4" />
-                    Export
+                    Ekspor
                   </Button>
                   <Button variant="outline" size="sm" className="flex-1 lg:flex-none">
                     <User className="mr-2 h-4 w-4" />
-                    Personal Insights
+                    Wawasan Pribadi
                   </Button>
                 </div>
               </div>
@@ -190,16 +190,15 @@ export function SessionHistory({ team }: SessionHistoryProps) {
               {/* Emotion Summary Section */}
               <div className="border-t border-gray-100 pt-4">
                 <div className="flex items-center justify-between mb-3">
-                  <h4 className="text-sm font-medium text-gray-700">Emotion Summary</h4>
+                  <h4 className="text-sm font-medium text-gray-700">Ringkasan Emosi</h4>
                   <div className="text-xs text-gray-500">
-                    Dominant:{" "}
-                    {session.emotionSummary.happy >= 50
-                      ? "Happy"
+                    Dominan: {session.emotionSummary.happy >= 50
+                      ? "Bahagia"
                       : session.emotionSummary.neutral >= 40
-                        ? "Neutral"
+                        ? "Netral"
                         : session.emotionSummary.stressed >= 30
-                          ? "Stressed"
-                          : "Mixed"}
+                          ? "Stres"
+                          : "Campuran"}
                   </div>
                 </div>
 
@@ -238,23 +237,23 @@ export function SessionHistory({ team }: SessionHistoryProps) {
                 <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 text-xs">
                   <div className="flex items-center gap-1">
                     <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                    <span className="text-gray-600">Happy ({session.emotionSummary.happy}%)</span>
+                    <span className="text-gray-600">Bahagia ({session.emotionSummary.happy}%)</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <div className="w-3 h-3 rounded-full bg-blue-500"></div>
-                    <span className="text-gray-600">Neutral ({session.emotionSummary.neutral}%)</span>
+                    <span className="text-gray-600">Netral ({session.emotionSummary.neutral}%)</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                    <span className="text-gray-600">Stressed ({session.emotionSummary.stressed}%)</span>
+                    <span className="text-gray-600">Stres ({session.emotionSummary.stressed}%)</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <div className="w-3 h-3 rounded-full bg-gray-500"></div>
-                    <span className="text-gray-600">Sad ({session.emotionSummary.sad}%)</span>
+                    <span className="text-gray-600">Sedih ({session.emotionSummary.sad}%)</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                    <span className="text-gray-600">Angry ({session.emotionSummary.angry}%)</span>
+                    <span className="text-gray-600">Marah ({session.emotionSummary.angry}%)</span>
                   </div>
                 </div>
               </div>

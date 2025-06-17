@@ -21,27 +21,27 @@ export default function SettingsPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold tracking-tight">Settings</h1>
-        <p className="text-muted-foreground">Manage your account and application preferences</p>
+        <h1 className="text-2xl font-bold tracking-tight">Pengaturan</h1>
+        <p className="text-muted-foreground">Kelola akun dan preferensi aplikasi Anda</p>
       </div>
 
       <Tabs defaultValue="profile">
         <TabsList className="grid w-full grid-cols-4 mb-6">
           <TabsTrigger value="profile">
             <User className="mr-2 h-4 w-4" />
-            Profile
+            Profil
           </TabsTrigger>
           <TabsTrigger value="notifications">
             <Bell className="mr-2 h-4 w-4" />
-            Notifications
+            Notifikasi
           </TabsTrigger>
           <TabsTrigger value="privacy">
             <Lock className="mr-2 h-4 w-4" />
-            Privacy
+            Privasi
           </TabsTrigger>
           <TabsTrigger value="teams">
             <Users className="mr-2 h-4 w-4" />
-            Teams
+            Tim
           </TabsTrigger>
         </TabsList>
 
@@ -49,8 +49,8 @@ export default function SettingsPage() {
           <div className="grid gap-6 md:grid-cols-2">
             <Card>
               <CardHeader>
-                <CardTitle>Personal Information</CardTitle>
-                <CardDescription>Update your personal details</CardDescription>
+                <CardTitle>Informasi Pribadi</CardTitle>
+                <CardDescription>Perbarui detail pribadi Anda</CardDescription>
               </CardHeader>
               <CardContent>
                 <form className="space-y-4">
@@ -60,89 +60,89 @@ export default function SettingsPage() {
                       <AvatarFallback>JD</AvatarFallback>
                     </Avatar>
                     <Button variant="outline" size="sm">
-                      Change Avatar
+                      Ubah Avatar
                     </Button>
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="name">Full Name</Label>
+                    <Label htmlFor="name">Nama Lengkap</Label>
                     <Input id="name" defaultValue="John Doe" />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
+                    <Label htmlFor="email">Surel</Label>
                     <Input id="email" type="email" defaultValue="john.doe@example.com" />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="role">Role</Label>
+                    <Label htmlFor="role">Peran</Label>
                     <Select defaultValue="member">
                       <SelectTrigger id="role">
-                        <SelectValue placeholder="Select role" />
+                        <SelectValue placeholder="Pilih peran" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="member">Team Member</SelectItem>
-                        <SelectItem value="facilitator">Facilitator</SelectItem>
-                        <SelectItem value="manager">Manager</SelectItem>
+                        <SelectItem value="member">Anggota Tim</SelectItem>
+                        <SelectItem value="facilitator">Fasilitator</SelectItem>
+                        <SelectItem value="manager">Manajer</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="timezone">Timezone</Label>
+                    <Label htmlFor="timezone">Zona Waktu</Label>
                     <Select defaultValue="utc-8">
                       <SelectTrigger id="timezone">
-                        <SelectValue placeholder="Select timezone" />
+                        <SelectValue placeholder="Pilih zona waktu" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="utc-8">Pacific Time (UTC-8)</SelectItem>
-                        <SelectItem value="utc-5">Eastern Time (UTC-5)</SelectItem>
+                        <SelectItem value="utc-8">Waktu Pasifik (UTC-8)</SelectItem>
+                        <SelectItem value="utc-5">Waktu Timur (UTC-5)</SelectItem>
                         <SelectItem value="utc+0">UTC</SelectItem>
-                        <SelectItem value="utc+1">Central European Time (UTC+1)</SelectItem>
-                        <SelectItem value="utc+8">China Standard Time (UTC+8)</SelectItem>
+                        <SelectItem value="utc+1">Waktu Eropa Tengah (UTC+1)</SelectItem>
+                        <SelectItem value="utc+8">Waktu Standar China (UTC+8)</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
 
-                  <Button className="w-full bg-teal-600 hover:bg-teal-700">Save Changes</Button>
+                  <Button className="w-full bg-teal-600 hover:bg-teal-700">Simpan Perubahan</Button>
                 </form>
               </CardContent>
             </Card>
 
             <Card>
               <CardHeader>
-                <CardTitle>Account Security</CardTitle>
-                <CardDescription>Update your password and security settings</CardDescription>
+                <CardTitle>Keamanan Akun</CardTitle>
+                <CardDescription>Perbarui kata sandi dan pengaturan keamanan Anda</CardDescription>
               </CardHeader>
               <CardContent>
                 <form className="space-y-4">
                   <div className="space-y-2">
-                    <Label htmlFor="current-password">Current Password</Label>
+                    <Label htmlFor="current-password">Kata Sandi Saat Ini</Label>
                     <Input id="current-password" type="password" />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="new-password">New Password</Label>
+                    <Label htmlFor="new-password">Kata Sandi Baru</Label>
                     <Input id="new-password" type="password" />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="confirm-password">Confirm New Password</Label>
+                    <Label htmlFor="confirm-password">Konfirmasi Kata Sandi Baru</Label>
                     <Input id="confirm-password" type="password" />
                   </div>
 
                   <div className="pt-4 space-y-4">
-                    <h3 className="font-medium">Two-Factor Authentication</h3>
+                    <h3 className="font-medium">Autentikasi Dua Faktor</h3>
                     <div className="flex items-center justify-between">
                       <div className="space-y-0.5">
-                        <Label htmlFor="2fa">Enable 2FA</Label>
-                        <p className="text-sm text-muted-foreground">Add an extra layer of security to your account</p>
+                        <Label htmlFor="2fa">Aktifkan 2FA</Label>
+                        <p className="text-sm text-muted-foreground">Tambahkan lapisan keamanan ekstra ke akun Anda</p>
                       </div>
                       <Switch id="2fa" />
                     </div>
                   </div>
 
-                  <Button className="w-full bg-teal-600 hover:bg-teal-700">Update Security Settings</Button>
+                  <Button className="w-full bg-teal-600 hover:bg-teal-700">Perbarui Pengaturan Keamanan</Button>
                 </form>
               </CardContent>
             </Card>
@@ -152,17 +152,17 @@ export default function SettingsPage() {
         <TabsContent value="notifications">
           <Card>
             <CardHeader>
-              <CardTitle>Notification Preferences</CardTitle>
-              <CardDescription>Choose how and when you want to be notified</CardDescription>
+              <CardTitle>Preferensi Notifikasi</CardTitle>
+              <CardDescription>Pilih cara dan waktu Anda ingin diberi tahu</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="space-y-4">
-                <h3 className="font-medium">General Notifications</h3>
+                <h3 className="font-medium">Notifikasi Umum</h3>
 
                 <div className="flex items-center justify-between">
                   <div className="space-y-0.5">
-                    <Label htmlFor="all-notifications">Enable All Notifications</Label>
-                    <p className="text-sm text-muted-foreground">Master toggle for all notifications</p>
+                    <Label htmlFor="all-notifications">Aktifkan Semua Notifikasi</Label>
+                    <p className="text-sm text-muted-foreground">Pengatur utama untuk semua notifikasi</p>
                   </div>
                   <Switch
                     id="all-notifications"
@@ -173,17 +173,17 @@ export default function SettingsPage() {
 
                 <div className="flex items-center justify-between">
                   <div className="space-y-0.5">
-                    <Label htmlFor="scrum-reminders">Scrum Session Reminders</Label>
-                    <p className="text-sm text-muted-foreground">Get notified before scheduled sessions</p>
+                    <Label htmlFor="scrum-reminders">Pengingat Sesi Scrum</Label>
+                    <p className="text-sm text-muted-foreground">Dapatkan pemberitahuan sebelum sesi yang dijadwalkan</p>
                   </div>
                   <Switch id="scrum-reminders" disabled={!notificationsEnabled} defaultChecked />
                 </div>
 
                 <div className="flex items-center justify-between">
                   <div className="space-y-0.5">
-                    <Label htmlFor="emotion-alerts">Emotion Alerts</Label>
+                    <Label htmlFor="emotion-alerts">Peringatan Emosi</Label>
                     <p className="text-sm text-muted-foreground">
-                      Receive alerts when team emotions change significantly
+                      Terima peringatan saat emosi tim berubah secara signifikan
                     </p>
                   </div>
                   <Switch id="emotion-alerts" disabled={!notificationsEnabled} defaultChecked />
@@ -191,42 +191,42 @@ export default function SettingsPage() {
 
                 <div className="flex items-center justify-between">
                   <div className="space-y-0.5">
-                    <Label htmlFor="suggestion-notifications">AI Suggestions</Label>
-                    <p className="text-sm text-muted-foreground">Get notified about AI-generated suggestions</p>
+                    <Label htmlFor="suggestion-notifications">Saran AI</Label>
+                    <p className="text-sm text-muted-foreground">Dapatkan pemberitahuan tentang saran yang dihasilkan AI</p>
                   </div>
                   <Switch id="suggestion-notifications" disabled={!notificationsEnabled} defaultChecked />
                 </div>
               </div>
 
               <div className="space-y-4">
-                <h3 className="font-medium">Delivery Methods</h3>
+                <h3 className="font-medium">Metode Pengiriman</h3>
 
                 <div className="flex items-center justify-between">
                   <div className="space-y-0.5">
-                    <Label htmlFor="in-app">In-App Notifications</Label>
-                    <p className="text-sm text-muted-foreground">Show notifications within the application</p>
+                    <Label htmlFor="in-app">Notifikasi Dalam Aplikasi</Label>
+                    <p className="text-sm text-muted-foreground">Tampilkan notifikasi di dalam aplikasi</p>
                   </div>
                   <Switch id="in-app" disabled={!notificationsEnabled} defaultChecked />
                 </div>
 
                 <div className="flex items-center justify-between">
                   <div className="space-y-0.5">
-                    <Label htmlFor="email">Email Notifications</Label>
-                    <p className="text-sm text-muted-foreground">Send notifications to your email</p>
+                    <Label htmlFor="email">Notifikasi Melalui Email</Label>
+                    <p className="text-sm text-muted-foreground">Kirim notifikasi ke email Anda</p>
                   </div>
                   <Switch id="email" disabled={!notificationsEnabled} defaultChecked />
                 </div>
 
                 <div className="flex items-center justify-between">
                   <div className="space-y-0.5">
-                    <Label htmlFor="desktop">Desktop Notifications</Label>
-                    <p className="text-sm text-muted-foreground">Show notifications on your desktop</p>
+                    <Label htmlFor="desktop">Notifikasi Desktop</Label>
+                    <p className="text-sm text-muted-foreground">Tampilkan notifikasi di desktop Anda</p>
                   </div>
                   <Switch id="desktop" disabled={!notificationsEnabled} defaultChecked />
                 </div>
               </div>
 
-              <Button className="bg-teal-600 hover:bg-teal-700">Save Notification Settings</Button>
+              <Button className="bg-teal-600 hover:bg-teal-700">Simpan Pengaturan Notifikasi</Button>
             </CardContent>
           </Card>
         </TabsContent>
@@ -234,17 +234,17 @@ export default function SettingsPage() {
         <TabsContent value="privacy">
           <Card>
             <CardHeader>
-              <CardTitle>Privacy Settings</CardTitle>
-              <CardDescription>Control how your data is collected and used</CardDescription>
+              <CardTitle>Pengaturan Privasi</CardTitle>
+              <CardDescription>Kontrol bagaimana data Anda dikumpulkan dan digunakan</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="space-y-4">
-                <h3 className="font-medium">Emotion Tracking</h3>
+                <h3 className="font-medium">Pelacakan Emosi</h3>
 
                 <div className="flex items-center justify-between">
                   <div className="space-y-0.5">
-                    <Label htmlFor="emotion-tracking">Enable Emotion Tracking</Label>
-                    <p className="text-sm text-muted-foreground">Allow the system to track your emotional state</p>
+                    <Label htmlFor="emotion-tracking">Aktifkan Pelacakan Emosi</Label>
+                    <p className="text-sm text-muted-foreground">Izinkan sistem untuk melacak keadaan emosional Anda</p>
                   </div>
                   <Switch
                     id="emotion-tracking"
@@ -255,16 +255,16 @@ export default function SettingsPage() {
 
                 <div className="flex items-center justify-between">
                   <div className="space-y-0.5">
-                    <Label htmlFor="text-analysis">Text Analysis</Label>
-                    <p className="text-sm text-muted-foreground">Analyze emotions from your text messages and chat</p>
+                    <Label htmlFor="text-analysis">Analisis Teks</Label>
+                    <p className="text-sm text-muted-foreground">Analisis emosi dari pesan teks dan obrolan Anda</p>
                   </div>
                   <Switch id="text-analysis" disabled={!emotionTrackingEnabled} defaultChecked />
                 </div>
 
                 <div className="flex items-center justify-between">
                   <div className="space-y-0.5">
-                    <Label htmlFor="voice-analysis">Voice Analysis</Label>
-                    <p className="text-sm text-muted-foreground">Analyze emotions from your voice during sessions</p>
+                    <Label htmlFor="voice-analysis">Analisis Suara</Label>
+                    <p className="text-sm text-muted-foreground">Analisis emosi dari suara Anda selama sesi</p>
                   </div>
                   <Switch
                     id="voice-analysis"
@@ -276,9 +276,9 @@ export default function SettingsPage() {
 
                 <div className="flex items-center justify-between">
                   <div className="space-y-0.5">
-                    <Label htmlFor="facial-analysis">Facial Expression Analysis</Label>
+                    <Label htmlFor="facial-analysis">Analisis Ekspresi Wajah</Label>
                     <p className="text-sm text-muted-foreground">
-                      Analyze emotions from your facial expressions (requires camera)
+                      Analisis emosi dari ekspresi wajah Anda (memerlukan kamera)
                     </p>
                   </div>
                   <Switch
@@ -291,13 +291,13 @@ export default function SettingsPage() {
               </div>
 
               <div className="space-y-4">
-                <h3 className="font-medium">Journal Privacy</h3>
+                <h3 className="font-medium">Privasi Jurnal</h3>
 
                 <div className="flex items-center justify-between">
                   <div className="space-y-0.5">
-                    <Label htmlFor="journal-analysis">Journal Analysis</Label>
+                    <Label htmlFor="journal-analysis">Analisis Jurnal</Label>
                     <p className="text-sm text-muted-foreground">
-                      Allow AI to analyze your journal entries for emotional insights
+                      Izinkan AI untuk menganalisis entri jurnal Anda untuk wawasan emosional
                     </p>
                   </div>
                   <Switch
@@ -309,38 +309,38 @@ export default function SettingsPage() {
 
                 <div className="flex items-center justify-between">
                   <div className="space-y-0.5">
-                    <Label htmlFor="journal-sharing">Journal Sharing</Label>
-                    <p className="text-sm text-muted-foreground">Share anonymized journal insights with your team</p>
+                    <Label htmlFor="journal-sharing">Berbagi Jurnal</Label>
+                    <p className="text-sm text-muted-foreground">Bagikan wawasan jurnal yang dianonimkan dengan tim Anda</p>
                   </div>
                   <Switch id="journal-sharing" disabled={!journalAnalysisEnabled} defaultChecked={false} />
                 </div>
               </div>
 
               <div className="space-y-4">
-                <h3 className="font-medium">Data Retention</h3>
+                <h3 className="font-medium">Penyimpanan Data</h3>
 
                 <div className="space-y-2">
-                  <Label htmlFor="data-retention">Keep Emotion Data For</Label>
+                  <Label htmlFor="data-retention">Simpan Data Emosi Selama</Label>
                   <Select defaultValue="90">
                     <SelectTrigger id="data-retention">
-                      <SelectValue placeholder="Select period" />
+                      <SelectValue placeholder="Pilih periode" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="30">30 days</SelectItem>
-                      <SelectItem value="90">90 days</SelectItem>
-                      <SelectItem value="180">6 months</SelectItem>
-                      <SelectItem value="365">1 year</SelectItem>
-                      <SelectItem value="forever">Indefinitely</SelectItem>
+                      <SelectItem value="30">30 hari</SelectItem>
+                      <SelectItem value="90">90 hari</SelectItem>
+                      <SelectItem value="180">6 bulan</SelectItem>
+                      <SelectItem value="365">1 tahun</SelectItem>
+                      <SelectItem value="forever">Selamanya</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
 
                 <Button variant="outline" className="text-red-600 border-red-200 hover:bg-red-50">
-                  Delete All My Data
+                  Hapus Semua Data Saya
                 </Button>
               </div>
 
-              <Button className="bg-teal-600 hover:bg-teal-700">Save Privacy Settings</Button>
+              <Button className="bg-teal-600 hover:bg-teal-700">Simpan Pengaturan Privasi</Button>
             </CardContent>
           </Card>
         </TabsContent>
@@ -348,22 +348,22 @@ export default function SettingsPage() {
         <TabsContent value="teams">
           <Card>
             <CardHeader>
-              <CardTitle>Team Management</CardTitle>
-              <CardDescription>Manage your teams and team memberships</CardDescription>
+              <CardTitle>Manajemen Tim</CardTitle>
+              <CardDescription>Kelola tim dan keanggotaan tim Anda</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="space-y-4">
-                <h3 className="font-medium">Your Teams</h3>
+                <h3 className="font-medium">Tim Anda</h3>
 
                 <div className="space-y-4">
                   <div className="p-4 bg-gray-50 rounded-lg">
                     <div className="flex justify-between items-start">
                       <div>
-                        <h4 className="font-medium">Frontend Team</h4>
-                        <p className="text-sm text-gray-500">5 members • You are a member</p>
+                        <h4 className="font-medium">Tim Frontend</h4>
+                        <p className="text-sm text-gray-500">5 anggota • Anda adalah anggota</p>
                       </div>
                       <Button variant="outline" size="sm">
-                        View Details
+                        Lihat Detail
                       </Button>
                     </div>
                   </div>
@@ -371,11 +371,11 @@ export default function SettingsPage() {
                   <div className="p-4 bg-gray-50 rounded-lg">
                     <div className="flex justify-between items-start">
                       <div>
-                        <h4 className="font-medium">Backend Team</h4>
-                        <p className="text-sm text-gray-500">6 members • You are a facilitator</p>
+                        <h4 className="font-medium">Tim Backend</h4>
+                        <p className="text-sm text-gray-500">6 anggota • Anda adalah fasilitator</p>
                       </div>
                       <Button variant="outline" size="sm">
-                        View Details
+                        Lihat Detail
                       </Button>
                     </div>
                   </div>
@@ -383,11 +383,11 @@ export default function SettingsPage() {
                   <div className="p-4 bg-gray-50 rounded-lg">
                     <div className="flex justify-between items-start">
                       <div>
-                        <h4 className="font-medium">Design Team</h4>
-                        <p className="text-sm text-gray-500">4 members • You are a member</p>
+                        <h4 className="font-medium">Tim Desain</h4>
+                        <p className="text-sm text-gray-500">4 anggota • Anda adalah anggota</p>
                       </div>
                       <Button variant="outline" size="sm">
-                        View Details
+                        Lihat Detail
                       </Button>
                     </div>
                   </div>
@@ -395,43 +395,43 @@ export default function SettingsPage() {
               </div>
 
               <div className="space-y-4">
-                <h3 className="font-medium">Create New Team</h3>
+                <h3 className="font-medium">Buat Tim Baru</h3>
 
                 <form className="space-y-4">
                   <div className="space-y-2">
-                    <Label htmlFor="team-name">Team Name</Label>
-                    <Input id="team-name" placeholder="Enter team name" />
+                    <Label htmlFor="team-name">Nama Tim</Label>
+                    <Input id="team-name" placeholder="Masukkan nama tim" />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="team-description">Description</Label>
-                    <Input id="team-description" placeholder="Brief team description" />
+                    <Label htmlFor="team-description">Deskripsi</Label>
+                    <Input id="team-description" placeholder="Deskripsi singkat tim" />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="team-members">Initial Members</Label>
-                    <Input id="team-members" placeholder="Enter email addresses, separated by commas" />
+                    <Label htmlFor="team-members">Anggota Awal</Label>
+                    <Input id="team-members" placeholder="Masukkan alamat email, dipisahkan dengan koma" />
                   </div>
 
-                  <Button className="bg-teal-600 hover:bg-teal-700">Create Team</Button>
+                  <Button className="bg-teal-600 hover:bg-teal-700">Buat Tim</Button>
                 </form>
               </div>
 
               <div className="space-y-4">
-                <h3 className="font-medium">Team Invitations</h3>
+                <h3 className="font-medium">Undangan Tim</h3>
 
                 <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
                   <div className="flex justify-between items-start">
                     <div>
-                      <h4 className="font-medium text-blue-800">QA Team</h4>
-                      <p className="text-sm text-blue-700">Invited by: Sarah Williams • 2 days ago</p>
+                      <h4 className="font-medium text-blue-800">Tim QA</h4>
+                      <p className="text-sm text-blue-700">Diundang oleh: Sarah Williams • 2 hari yang lalu</p>
                     </div>
                     <div className="flex space-x-2">
                       <Button size="sm" variant="outline" className="border-blue-300 text-blue-700 hover:bg-blue-100">
-                        Decline
+                        Tolak
                       </Button>
                       <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
-                        Accept
+                        Terima
                       </Button>
                     </div>
                   </div>

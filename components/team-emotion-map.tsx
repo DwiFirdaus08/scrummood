@@ -10,8 +10,8 @@ export function TeamEmotionMap() {
     if (!ctx) return
 
     // Mock data for the heatmap
-    const teamMembers = ["John", "Jane", "Mike", "Sarah", "Alex"]
-    const timePoints = ["9:00", "9:05", "9:10", "9:15", "9:20", "9:25", "9:30"]
+    const teamMembers = ["Budi", "Siti", "Andi", "Rina", "Alex"]
+    const timePoints = ["09.00", "09.05", "09.10", "09.15", "09.20", "09.25", "09.30"]
 
     // Emotion data: 0 = angry, 0.25 = sad, 0.5 = neutral, 0.75 = happy, 1 = very happy
     const emotionData = [
@@ -79,11 +79,11 @@ export function TeamEmotionMap() {
 
     // Draw legend
     const legendItems = [
-      { label: "Very Happy", color: "#22c55e", emoji: "😁" },
-      { label: "Happy", color: "#4ade80", emoji: "😊" },
-      { label: "Neutral", color: "#60a5fa", emoji: "😐" },
-      { label: "Sad", color: "#94a3b8", emoji: "😔" },
-      { label: "Angry", color: "#f87171", emoji: "😠" },
+      { label: "Sangat Senang", color: "#22c55e", emoji: "😁" },
+      { label: "Senang", color: "#4ade80", emoji: "😊" },
+      { label: "Netral", color: "#60a5fa", emoji: "😐" },
+      { label: "Sedih", color: "#94a3b8", emoji: "😔" },
+      { label: "Marah", color: "#f87171", emoji: "😠" },
     ]
 
     const legendX = 100

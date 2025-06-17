@@ -8,22 +8,22 @@ export default function TeamVisualizationPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold tracking-tight">Team Visualization</h1>
-        <p className="text-muted-foreground">Visualize and understand your team's emotional patterns</p>
+        <h1 className="text-2xl font-bold tracking-tight">Visualisasi Tim</h1>
+        <p className="text-muted-foreground">Visualisasikan dan pahami pola emosional tim Anda</p>
       </div>
 
       <Tabs defaultValue="heatmap">
         <TabsList className="grid w-full grid-cols-3 mb-6">
-          <TabsTrigger value="heatmap">Emotion Heatmap</TabsTrigger>
-          <TabsTrigger value="timeline">Timeline View</TabsTrigger>
-          <TabsTrigger value="comparison">Team Comparison</TabsTrigger>
+          <TabsTrigger value="heatmap">Peta Emosi</TabsTrigger>
+          <TabsTrigger value="timeline">Garis Waktu</TabsTrigger>
+          <TabsTrigger value="comparison">Perbandingan Tim</TabsTrigger>
         </TabsList>
 
         <TabsContent value="heatmap">
           <Card>
             <CardHeader>
-              <CardTitle>Team Emotion Heatmap</CardTitle>
-              <CardDescription>Visualize the emotional state of your team during the current session</CardDescription>
+              <CardTitle>Peta Emosi Tim</CardTitle>
+              <CardDescription>Visualisasikan keadaan emosi tim Anda pada sesi ini</CardDescription>
             </CardHeader>
             <CardContent>
               <TeamEmotionMap />
@@ -34,8 +34,8 @@ export default function TeamVisualizationPage() {
         <TabsContent value="timeline">
           <Card>
             <CardHeader>
-              <CardTitle>Emotion Timeline</CardTitle>
-              <CardDescription>Track how emotions change over time during the session</CardDescription>
+              <CardTitle>Garis Waktu Emosi</CardTitle>
+              <CardDescription>Lacak perubahan emosi selama sesi berlangsung</CardDescription>
             </CardHeader>
             <CardContent>
               <TeamTimeline />
@@ -46,8 +46,8 @@ export default function TeamVisualizationPage() {
         <TabsContent value="comparison">
           <Card>
             <CardHeader>
-              <CardTitle>Team Comparison</CardTitle>
-              <CardDescription>Compare emotional patterns across different teams or sessions</CardDescription>
+              <CardTitle>Perbandingan Tim</CardTitle>
+              <CardDescription>Bandingkan pola emosi antar tim atau sesi</CardDescription>
             </CardHeader>
             <CardContent>
               <TeamComparison />
@@ -59,32 +59,32 @@ export default function TeamVisualizationPage() {
       <div className="grid gap-6 md:grid-cols-2">
         <Card>
           <CardHeader>
-            <CardTitle>Emotional Insights</CardTitle>
-            <CardDescription>AI-generated insights based on team emotions</CardDescription>
+            <CardTitle>Wawasan Emosional</CardTitle>
+            <CardDescription>Wawasan yang dihasilkan AI berdasarkan emosi tim</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
               <div className="p-4 bg-gray-50 rounded-lg border border-gray-200">
-                <h3 className="font-medium mb-2">Positive Trend</h3>
+                <h3 className="font-medium mb-2">Tren Positif</h3>
                 <p className="text-sm text-gray-700">
-                  The team's overall mood has improved by 15% compared to last week's sessions. This positive trend
-                  correlates with the recent project milestone completion.
+                  Suasana hati tim secara keseluruhan telah meningkat sebesar 15% dibandingkan dengan sesi minggu lalu.
+                  Tren positif ini sejalan dengan selesainya tonggak proyek baru-baru ini.
                 </p>
               </div>
 
               <div className="p-4 bg-gray-50 rounded-lg border border-gray-200">
-                <h3 className="font-medium mb-2">Stress Patterns</h3>
+                <h3 className="font-medium mb-2">Pola Stres</h3>
                 <p className="text-sm text-gray-700">
-                  Stress levels tend to peak around 15 minutes into the session. Consider restructuring the meeting to
-                  address challenging topics earlier.
+                  Tingkat stres cenderung memuncak sekitar 15 menit setelah sesi dimulai. Pertimbangkan untuk
+                  merestrukturisasi rapat untuk membahas topik yang menantang lebih awal.
                 </p>
               </div>
 
               <div className="p-4 bg-gray-50 rounded-lg border border-gray-200">
-                <h3 className="font-medium mb-2">Team Dynamics</h3>
+                <h3 className="font-medium mb-2">Dinamika Tim</h3>
                 <p className="text-sm text-gray-700">
-                  There's a noticeable emotional alignment between team members, suggesting good team cohesion and
-                  shared understanding of project goals.
+                  Ada keselarasan emosional yang nyata antar anggota tim, menunjukkan kohesi tim yang baik dan
+                  pemahaman bersama tentang tujuan proyek.
                 </p>
               </div>
             </div>
@@ -93,15 +93,15 @@ export default function TeamVisualizationPage() {
 
         <Card>
           <CardHeader>
-            <CardTitle>Emotion Distribution</CardTitle>
-            <CardDescription>Breakdown of emotions across the team</CardDescription>
+            <CardTitle>Distribusi Emosi</CardTitle>
+            <CardDescription>Rincian emosi di seluruh tim</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-6">
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <div className="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
-                  <span>Happy</span>
+                  <span>Senang</span>
                 </div>
                 <div className="w-2/3 bg-gray-200 rounded-full h-2.5">
                   <div className="bg-green-500 h-2.5 rounded-full" style={{ width: "40%" }}></div>
@@ -112,7 +112,7 @@ export default function TeamVisualizationPage() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <div className="w-3 h-3 rounded-full bg-blue-500 mr-2"></div>
-                  <span>Neutral</span>
+                  <span>Netral</span>
                 </div>
                 <div className="w-2/3 bg-gray-200 rounded-full h-2.5">
                   <div className="bg-blue-500 h-2.5 rounded-full" style={{ width: "30%" }}></div>
@@ -123,7 +123,7 @@ export default function TeamVisualizationPage() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <div className="w-3 h-3 rounded-full bg-yellow-500 mr-2"></div>
-                  <span>Stressed</span>
+                  <span>Stres</span>
                 </div>
                 <div className="w-2/3 bg-gray-200 rounded-full h-2.5">
                   <div className="bg-yellow-500 h-2.5 rounded-full" style={{ width: "15%" }}></div>
@@ -134,7 +134,7 @@ export default function TeamVisualizationPage() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <div className="w-3 h-3 rounded-full bg-gray-500 mr-2"></div>
-                  <span>Sad</span>
+                  <span>Sedih</span>
                 </div>
                 <div className="w-2/3 bg-gray-200 rounded-full h-2.5">
                   <div className="bg-gray-500 h-2.5 rounded-full" style={{ width: "10%" }}></div>
@@ -145,7 +145,7 @@ export default function TeamVisualizationPage() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <div className="w-3 h-3 rounded-full bg-red-500 mr-2"></div>
-                  <span>Angry</span>
+                  <span>Marah</span>
                 </div>
                 <div className="w-2/3 bg-gray-200 rounded-full h-2.5">
                   <div className="bg-red-500 h-2.5 rounded-full" style={{ width: "5%" }}></div>

@@ -26,41 +26,41 @@ export function RegisterForm() {
     <Card className="w-full">
       <form onSubmit={handleRegister}>
         <CardHeader>
-          <CardTitle>Create Account</CardTitle>
-          <CardDescription>Enter your information to create a new account</CardDescription>
+          <CardTitle>Buat Akun</CardTitle>
+          <CardDescription>Masukkan informasi Anda untuk membuat akun baru</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="name">Full Name</Label>
-            <Input id="name" placeholder="John Doe" required />
+            <Label htmlFor="name">Nama Lengkap</Label>
+            <Input id="name" placeholder="Budi Santoso" required />
           </div>
           <div className="space-y-2">
             <Label htmlFor="email">Email</Label>
-            <Input id="email" type="email" placeholder="name@example.com" required />
+            <Input id="email" type="email" placeholder="nama@email.com" required />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="password">Password</Label>
+            <Label htmlFor="password">Kata Sandi</Label>
             <Input id="password" type="password" required />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="confirm-password">Confirm Password</Label>
+            <Label htmlFor="confirm-password">Konfirmasi Kata Sandi</Label>
             <Input id="confirm-password" type="password" required />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="role">Role</Label>
+            <Label htmlFor="role">Peran</Label>
             <select
               id="role"
               className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
             >
-              <option value="member">Team Member</option>
-              <option value="facilitator">Facilitator</option>
-              <option value="manager">Manager</option>
+              <option value="member">Anggota Tim</option>
+              <option value="facilitator">Fasilitator</option>
+              <option value="manager">Manajer</option>
             </select>
           </div>
         </CardContent>
         <CardFooter>
           <Button type="submit" className="w-full bg-teal-600 hover:bg-teal-700" disabled={isLoading}>
-            {isLoading ? "Creating account..." : "Create Account"}
+            {isLoading ? "Membuat akun..." : "Buat Akun"}
           </Button>
         </CardFooter>
       </form>

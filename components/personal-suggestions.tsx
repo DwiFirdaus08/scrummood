@@ -16,24 +16,24 @@ export function PersonalSuggestions({ source = "all" }: PersonalSuggestionsProps
     actionItems: [
       {
         id: 1,
-        title: "Practice active listening",
-        description: "Based on meeting analysis, try to ask more clarifying questions during discussions",
+        title: "Latihan mendengarkan aktif",
+        description: "Berdasarkan analisis rapat, cobalah lebih banyak bertanya klarifikasi saat diskusi",
         priority: "high",
         source: "meeting",
         completed: false,
       },
       {
         id: 2,
-        title: "Take regular breaks",
-        description: "Your journal entries show stress patterns. Schedule 5-minute breaks every hour",
+        title: "Ambil istirahat secara teratur",
+        description: "Entri jurnal Anda menunjukkan pola stres. Jadwalkan istirahat 5 menit setiap jam",
         priority: "medium",
         source: "journal",
         completed: false,
       },
       {
         id: 3,
-        title: "Share ideas more confidently",
-        description: "You have great insights but seem hesitant to share them in meetings",
+        title: "Bagikan ide dengan lebih percaya diri",
+        description: "Anda punya banyak wawasan bagus tapi tampak ragu membagikannya di rapat",
         priority: "high",
         source: "meeting",
         completed: false,
@@ -42,22 +42,22 @@ export function PersonalSuggestions({ source = "all" }: PersonalSuggestionsProps
     strengths: [
       {
         id: 4,
-        title: "Excellent problem-solving skills",
-        description: "You consistently provide creative solutions during team discussions",
+        title: "Kemampuan pemecahan masalah yang hebat",
+        description: "Anda konsisten memberikan solusi kreatif saat diskusi tim",
         source: "meeting",
       },
       {
         id: 5,
-        title: "Positive attitude maintenance",
-        description: "Your journal shows resilience and optimism even during challenging times",
+        title: "Menjaga sikap positif",
+        description: "Jurnal Anda menunjukkan ketahanan dan optimisme bahkan di masa sulit",
         source: "journal",
       },
     ],
     completed: [
       {
         id: 6,
-        title: "Improved meeting participation",
-        description: "Great progress in speaking up during team meetings",
+        title: "Partisipasi rapat meningkat",
+        description: "Kemajuan besar dalam berani berbicara di rapat tim",
         completedDate: "2024-01-10",
         source: "meeting",
       },
@@ -99,15 +99,15 @@ export function PersonalSuggestions({ source = "all" }: PersonalSuggestionsProps
       <TabsList className="grid w-full grid-cols-3">
         <TabsTrigger value="action-items" className="flex items-center gap-2">
           <Target className="h-4 w-4" />
-          Action Items ({filteredSuggestions.actionItems.length})
+          Tugas Aksi ({filteredSuggestions.actionItems.length})
         </TabsTrigger>
         <TabsTrigger value="strengths" className="flex items-center gap-2">
           <TrendingUp className="h-4 w-4" />
-          Strengths ({filteredSuggestions.strengths.length})
+          Kekuatan ({filteredSuggestions.strengths.length})
         </TabsTrigger>
         <TabsTrigger value="completed" className="flex items-center gap-2">
           <CheckCircle className="h-4 w-4" />
-          Completed ({filteredSuggestions.completed.length})
+          Selesai ({filteredSuggestions.completed.length})
         </TabsTrigger>
       </TabsList>
 
@@ -115,7 +115,7 @@ export function PersonalSuggestions({ source = "all" }: PersonalSuggestionsProps
         {filteredSuggestions.actionItems.length === 0 ? (
           <div className="text-center py-8 text-gray-500">
             <Target className="h-12 w-12 mx-auto mb-4 opacity-50" />
-            <p>No action items from {source === "all" ? "any source" : source}</p>
+            <p>Tidak ada tugas aksi dari {source === "all" ? "sumber manapun" : source}</p>
           </div>
         ) : (
           filteredSuggestions.actionItems.map((item) => (
@@ -131,13 +131,13 @@ export function PersonalSuggestions({ source = "all" }: PersonalSuggestionsProps
                     <p className="text-sm text-gray-600 mb-3">{item.description}</p>
                     <div className="flex items-center gap-2">
                       <Badge variant="outline" className="text-xs">
-                        From {item.source}
+                        Dari {item.source === "meeting" ? "rapat" : item.source === "journal" ? "jurnal" : item.source}
                       </Badge>
                     </div>
                   </div>
                   <Button size="sm" variant="outline">
                     <CheckCircle className="h-4 w-4 mr-1" />
-                    Mark Done
+                    Tandai Selesai
                   </Button>
                 </div>
               </CardContent>
@@ -150,7 +150,7 @@ export function PersonalSuggestions({ source = "all" }: PersonalSuggestionsProps
         {filteredSuggestions.strengths.length === 0 ? (
           <div className="text-center py-8 text-gray-500">
             <TrendingUp className="h-12 w-12 mx-auto mb-4 opacity-50" />
-            <p>No strengths identified from {source === "all" ? "any source" : source}</p>
+            <p>Tidak ada kekuatan yang teridentifikasi dari {source === "all" ? "sumber manapun" : source}</p>
           </div>
         ) : (
           filteredSuggestions.strengths.map((item) => (
@@ -162,7 +162,7 @@ export function PersonalSuggestions({ source = "all" }: PersonalSuggestionsProps
                     <h3 className="font-medium text-green-800 mb-2">{item.title}</h3>
                     <p className="text-sm text-gray-600 mb-3">{item.description}</p>
                     <Badge variant="outline" className="text-xs">
-                      From {item.source}
+                      Dari {item.source === "meeting" ? "rapat" : item.source === "journal" ? "jurnal" : item.source}
                     </Badge>
                   </div>
                 </div>
@@ -176,7 +176,7 @@ export function PersonalSuggestions({ source = "all" }: PersonalSuggestionsProps
         {filteredSuggestions.completed.length === 0 ? (
           <div className="text-center py-8 text-gray-500">
             <CheckCircle className="h-12 w-12 mx-auto mb-4 opacity-50" />
-            <p>No completed items from {source === "all" ? "any source" : source}</p>
+            <p>Tidak ada tugas selesai dari {source === "all" ? "sumber manapun" : source}</p>
           </div>
         ) : (
           filteredSuggestions.completed.map((item) => (
@@ -189,10 +189,10 @@ export function PersonalSuggestions({ source = "all" }: PersonalSuggestionsProps
                     <p className="text-sm text-gray-500 mb-2">{item.description}</p>
                     <div className="flex items-center gap-2">
                       <Badge variant="outline" className="text-xs">
-                        From {item.source}
+                        Dari {item.source === "meeting" ? "rapat" : item.source === "journal" ? "jurnal" : item.source}
                       </Badge>
                       <Badge variant="outline" className="text-xs">
-                        Completed {item.completedDate}
+                        Selesai {item.completedDate}
                       </Badge>
                     </div>
                   </div>

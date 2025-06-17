@@ -13,14 +13,14 @@ export default function RegisterPage() {
             </div>
             <h1 className="text-3xl font-bold text-teal-700">ScrumMood</h1>
           </Link>
-          <p className="text-gray-600 mt-2">Create your account to start improving your team's dynamics.</p>
+          <p className="text-gray-600 mt-2">Buat akun Anda untuk mulai meningkatkan dinamika tim Anda.</p>
         </div>
         <RegisterForm />
         <div className="text-center mt-6">
           <p className="text-sm text-gray-600">
-            Already have an account?{" "}
+            Sudah punya akun?{" "}
             <Link href="/login" className="text-teal-600 hover:text-teal-700 font-medium">
-              Sign in here
+              Masuk di sini
             </Link>
           </p>
         </div>

@@ -13,19 +13,19 @@ export default function Dashboard() {
       {/* Header Section */}
       <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
         <div className="flex-1">
-          <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
+          <h1 className="text-3xl font-bold tracking-tight">Dasbor</h1>
           <p className="text-muted-foreground mt-1">
-            Welcome back! Monitor your team's emotional health and upcoming sessions.
+            Selamat datang kembali! Pantau kesehatan emosional tim Anda dan sesi yang akan datang.
           </p>
         </div>
         <div className="flex flex-col sm:flex-row gap-2">
           <Link href="/dashboard/meeting">
             <Button className="bg-teal-600 hover:bg-teal-700 w-full sm:w-auto">
-              <Video className="mr-2 h-4 w-4" /> Join Active Meeting
+              <Video className="mr-2 h-4 w-4" /> Gabung Meeting Aktif
             </Button>
           </Link>
           <Button variant="outline" className="w-full sm:w-auto">
-            <Clock className="mr-2 h-4 w-4" /> View Past Sessions
+            <Clock className="mr-2 h-4 w-4" /> Lihat Sesi Sebelumnya
           </Button>
         </div>
       </div>
@@ -34,45 +34,45 @@ export default function Dashboard() {
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Active Sessions</CardTitle>
+            <CardTitle className="text-sm font-medium">Sesi Aktif</CardTitle>
             <div className="h-4 w-4 rounded-full bg-green-500"></div>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">1</div>
-            <p className="text-xs text-muted-foreground">Frontend Team Daily Scrum</p>
+            <p className="text-xs text-muted-foreground">Daily Scrum Tim Frontend</p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Team Mood</CardTitle>
+            <CardTitle className="text-sm font-medium">Mood Tim</CardTitle>
             <TrendingUp className="h-4 w-4 text-yellow-500" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">Neutral</div>
-            <p className="text-xs text-muted-foreground">+2% from yesterday</p>
+            <div className="text-2xl font-bold">Netral</div>
+            <p className="text-xs text-muted-foreground">+2% dari kemarin</p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Upcoming Scrums</CardTitle>
+            <CardTitle className="text-sm font-medium">Scrum Mendatang</CardTitle>
             <Calendar className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">3</div>
-            <p className="text-xs text-muted-foreground">Next: Backend Team (10:00 AM)</p>
+            <p className="text-xs text-muted-foreground">Berikutnya: Tim Backend (10:00 AM)</p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Suggestions</CardTitle>
+            <CardTitle className="text-sm font-medium">Saran</CardTitle>
             <Lightbulb className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">5</div>
-            <p className="text-xs text-muted-foreground">2 new since yesterday</p>
+            <p className="text-xs text-muted-foreground">2 baru sejak kemarin</p>
           </CardContent>
         </Card>
       </div>
@@ -81,8 +81,8 @@ export default function Dashboard() {
       <div className="grid gap-6 lg:grid-cols-3">
         <Card className="lg:col-span-2">
           <CardHeader>
-            <CardTitle>Team Emotion Trends</CardTitle>
-            <CardDescription>Emotional patterns over the last 7 days</CardDescription>
+            <CardTitle>Tren Emosi Tim</CardTitle>
+            <CardDescription>Pola emosional selama 7 hari terakhir</CardDescription>
           </CardHeader>
           <CardContent>
             <EmotionChart />
@@ -91,8 +91,8 @@ export default function Dashboard() {
 
         <Card>
           <CardHeader>
-            <CardTitle>Current Team Mood</CardTitle>
-            <CardDescription>Real-time emotional state</CardDescription>
+            <CardTitle>Mood Tim Saat Ini</CardTitle>
+            <CardDescription>Keadaan emosional waktu nyata</CardDescription>
           </CardHeader>
           <CardContent>
             <TeamMoodSummary />
@@ -106,9 +106,9 @@ export default function Dashboard() {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Users className="h-5 w-5" />
-              Team Suggestions
+              Saran Tim
             </CardTitle>
-            <CardDescription>AI recommendations for the team</CardDescription>
+            <CardDescription>Rekomendasi AI untuk tim</CardDescription>
           </CardHeader>
           <CardContent className="max-h-80 overflow-y-auto">
             <RecentSuggestions />
@@ -119,9 +119,9 @@ export default function Dashboard() {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Calendar className="h-5 w-5" />
-              Upcoming Sessions
+              Sesi Mendatang
             </CardTitle>
-            <CardDescription>Your scheduled Daily Scrums</CardDescription>
+            <CardDescription>Scrum Harian Anda yang dijadwalkan</CardDescription>
           </CardHeader>
           <CardContent className="max-h-80 overflow-y-auto">
             <UpcomingScrums />
@@ -132,33 +132,33 @@ export default function Dashboard() {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <TrendingUp className="h-5 w-5" />
-              Personal Insights
+              Wawasan Pribadi
             </CardTitle>
-            <CardDescription>Personalized suggestions for you</CardDescription>
+            <CardDescription>Rekomendasi yang dipersonalisasi untuk Anda</CardDescription>
           </CardHeader>
           <CardContent className="max-h-80 overflow-y-auto">
             <div className="space-y-3">
               <div className="p-3 bg-blue-50 border border-blue-200 rounded-lg">
-                <h4 className="font-medium text-sm text-blue-800">Practice Active Listening</h4>
-                <p className="text-xs text-blue-700 mt-1">Try to ask more clarifying questions during discussions</p>
+                <h4 className="font-medium text-sm text-blue-800">Latihan Mendengarkan Aktif</h4>
+                <p className="text-xs text-blue-700 mt-1">Cobalah untuk lebih banyak mengajukan pertanyaan klarifikasi selama diskusi</p>
                 <div className="flex items-center justify-between mt-2">
-                  <span className="text-xs text-blue-600">From meeting</span>
+                  <span className="text-xs text-blue-600">Dari rapat</span>
                   <Button size="sm" variant="outline" className="text-xs h-6">
-                    Mark Done
+                    Tandai Selesai
                   </Button>
                 </div>
               </div>
 
               <div className="p-3 bg-green-50 border border-green-200 rounded-lg">
-                <h4 className="font-medium text-sm text-green-800">Great Problem Solving</h4>
-                <p className="text-xs text-green-700 mt-1">Your analytical approach was excellent today</p>
-                <span className="text-xs text-green-600">From meeting</span>
+                <h4 className="font-medium text-sm text-green-800">Pemecahan Masalah yang Hebat</h4>
+                <p className="text-xs text-green-700 mt-1">Pendekatan analitis Anda sangat baik hari ini</p>
+                <span className="text-xs text-green-600">Dari rapat</span>
               </div>
 
               <div className="text-center pt-2">
                 <Link href="/dashboard/personal-insights">
                   <Button variant="outline" size="sm" className="text-xs">
-                    View All Insights
+                    Lihat Semua Wawasan
                   </Button>
                 </Link>
               </div>

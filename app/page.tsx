@@ -19,11 +19,11 @@ export default function LandingPage() {
           <div className="flex space-x-3">
             <Link href="/login">
               <Button variant="outline" className="border-teal-600 text-teal-600 hover:bg-teal-50">
-                Login
+                Masuk
               </Button>
             </Link>
             <Link href="/register">
-              <Button className="bg-teal-600 hover:bg-teal-700">Get Started</Button>
+              <Button className="bg-teal-600 hover:bg-teal-700">Daftar</Button>
             </Link>
           </div>
         </div>
@@ -33,29 +33,24 @@ export default function LandingPage() {
       <section className="py-20 px-4">
         <div className="container mx-auto text-center">
           <Badge variant="outline" className="mb-4 border-teal-200 text-teal-700">
-            Smart Collaborative Real-time Understanding & Management of Mood
+            Kolaborasi Cerdas & Manajemen Mood Tim Secara Real-time
           </Badge>
           <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-            Transform Your
-            <span className="text-teal-600"> Daily Scrums</span>
+            Ubah
+            <span className="text-teal-600"> Daily Scrum</span> Anda
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            Monitor, analyze, and manage emotional dynamics of team members during Daily Scrum sessions with AI-powered
-            insights and real-time emotion tracking.
+            Pantau, analisis, dan kelola dinamika emosi anggota tim selama sesi Daily Scrum dengan wawasan AI dan pelacakan emosi secara real-time.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/register">
               <Button size="lg" className="bg-teal-600 hover:bg-teal-700 text-lg px-8 py-3">
-                Start Free Trial
+                Coba Gratis
               </Button>
             </Link>
-            <Link href="/demo">
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-teal-600 text-teal-600 hover:bg-teal-50 text-lg px-8 py-3"
-              >
-                Watch Demo
+            <Link href="/login">
+              <Button size="lg" variant="outline" className="border-teal-600 text-teal-600 hover:bg-teal-50 text-lg px-8 py-3">
+                Sudah Punya Akun?
               </Button>
             </Link>
           </div>
@@ -66,9 +61,9 @@ export default function LandingPage() {
       <section className="py-20 px-4 bg-white">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Powerful Features for Better Team Dynamics</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Fitur Unggulan untuk Dinamika Tim yang Lebih Baik</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Everything you need to understand and improve your team's emotional well-being during Scrum sessions.
+              Segala yang Anda butuhkan untuk memahami dan meningkatkan kesejahteraan emosional tim Anda selama sesi Scrum.
             </p>
           </div>
 
@@ -78,9 +73,9 @@ export default function LandingPage() {
                 <div className="h-12 w-12 rounded-lg bg-teal-100 flex items-center justify-center mb-4">
                   <Brain className="h-6 w-6 text-teal-600" />
                 </div>
-                <CardTitle>Real-time Emotion Tracking</CardTitle>
+                <CardTitle>Pelacakan Emosi Real-time</CardTitle>
                 <CardDescription>
-                  Monitor team emotions through text, voice, and facial analysis during live sessions.
+                  Pantau emosi tim melalui analisis teks, suara, dan wajah selama sesi langsung.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -90,9 +85,9 @@ export default function LandingPage() {
                 <div className="h-12 w-12 rounded-lg bg-blue-100 flex items-center justify-center mb-4">
                   <BarChart3 className="h-6 w-6 text-blue-600" />
                 </div>
-                <CardTitle>Team Visualization</CardTitle>
+                <CardTitle>Visualisasi Tim</CardTitle>
                 <CardDescription>
-                  Visualize emotional patterns with heatmaps, timelines, and comparative analytics.
+                  Visualisasikan pola emosional dengan peta panas, garis waktu, dan analisis komparatif.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -102,9 +97,9 @@ export default function LandingPage() {
                 <div className="h-12 w-12 rounded-lg bg-purple-100 flex items-center justify-center mb-4">
                   <Zap className="h-6 w-6 text-purple-600" />
                 </div>
-                <CardTitle>AI-Powered Insights</CardTitle>
+                <CardTitle>Wawasan Berbasis AI</CardTitle>
                 <CardDescription>
-                  Get intelligent suggestions to improve team dynamics and reduce stress levels.
+                  Dapatkan saran cerdas untuk meningkatkan dinamika tim dan mengurangi tingkat stres.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -114,8 +109,8 @@ export default function LandingPage() {
                 <div className="h-12 w-12 rounded-lg bg-green-100 flex items-center justify-center mb-4">
                   <MessageSquare className="h-6 w-6 text-green-600" />
                 </div>
-                <CardTitle>Live Meeting Integration</CardTitle>
-                <CardDescription>Seamlessly integrate with your existing meeting tools and workflows.</CardDescription>
+                <CardTitle>Integrasi Rapat Langsung</CardTitle>
+                <CardDescription>Integrasikan dengan mulus ke alat dan alur kerja rapat yang sudah ada.</CardDescription>
               </CardHeader>
             </Card>
 
@@ -124,9 +119,9 @@ export default function LandingPage() {
                 <div className="h-12 w-12 rounded-lg bg-orange-100 flex items-center justify-center mb-4">
                   <Calendar className="h-6 w-6 text-orange-600" />
                 </div>
-                <CardTitle>Session Management</CardTitle>
+                <CardTitle>Manajemen Sesi</CardTitle>
                 <CardDescription>
-                  Schedule, track, and analyze all your Daily Scrum sessions in one place.
+                  Jadwalkan, lacak, dan analisis semua sesi Daily Scrum Anda di satu tempat.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -136,9 +131,9 @@ export default function LandingPage() {
                 <div className="h-12 w-12 rounded-lg bg-red-100 flex items-center justify-center mb-4">
                   <Shield className="h-6 w-6 text-red-600" />
                 </div>
-                <CardTitle>Privacy & Security</CardTitle>
+                <CardTitle>Privasi & Keamanan</CardTitle>
                 <CardDescription>
-                  Enterprise-grade security with full control over your team's emotional data.
+                  Keamanan tingkat perusahaan dengan kontrol penuh atas data emosional tim Anda.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -150,24 +145,24 @@ export default function LandingPage() {
       <section className="py-20 px-4 bg-gradient-to-r from-teal-600 to-cyan-600 text-white">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Why Teams Choose ScrumMood</h2>
+            <h2 className="text-4xl font-bold mb-4">Mengapa Tim Memilih ScrumMood</h2>
             <p className="text-xl text-teal-100 max-w-2xl mx-auto">
-              Join thousands of teams who have improved their collaboration and productivity.
+              Bergabunglah dengan ribuan tim yang telah meningkatkan kolaborasi dan produktivitas mereka.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="text-4xl font-bold mb-2">85%</div>
-              <div className="text-teal-100">Improvement in team communication</div>
+              <div className="text-teal-100">Peningkatan komunikasi tim</div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold mb-2">60%</div>
-              <div className="text-teal-100">Reduction in meeting stress levels</div>
+              <div className="text-teal-100">Pengurangan tingkat stres rapat</div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold mb-2">40%</div>
-              <div className="text-teal-100">Faster issue resolution</div>
+              <div className="text-teal-100">Penyelesaian masalah lebih cepat</div>
             </div>
           </div>
         </div>
@@ -176,15 +171,14 @@ export default function LandingPage() {
       {/* CTA Section */}
       <section className="py-20 px-4 bg-white">
         <div className="container mx-auto text-center">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Ready to Transform Your Team Dynamics?</h2>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Siap Mengubah Dinamika Tim Anda?</h2>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Start your free trial today and see how ScrumMood can help your team communicate better and work more
-            effectively.
+            Mulailah percobaan gratis Anda hari ini dan lihat bagaimana ScrumMood dapat membantu tim Anda berkomunikasi lebih baik dan bekerja lebih efektif.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/register">
               <Button size="lg" className="bg-teal-600 hover:bg-teal-700 text-lg px-8 py-3">
-                Start Free Trial
+                Coba Gratis
               </Button>
             </Link>
             <Link href="/contact">
@@ -193,7 +187,7 @@ export default function LandingPage() {
                 variant="outline"
                 className="border-teal-600 text-teal-600 hover:bg-teal-50 text-lg px-8 py-3"
               >
-                Contact Sales
+                Hubungi Penjualan
               </Button>
             </Link>
           </div>
@@ -216,16 +210,16 @@ export default function LandingPage() {
               </p>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Product</h4>
+              <h4 className="font-semibold mb-4">Produk</h4>
               <ul className="space-y-2 text-gray-400">
                 <li>
                   <Link href="/features" className="hover:text-white">
-                    Features
+                    Fitur
                   </Link>
                 </li>
                 <li>
                   <Link href="/pricing" className="hover:text-white">
-                    Pricing
+                    Harga
                   </Link>
                 </li>
                 <li>
@@ -235,17 +229,17 @@ export default function LandingPage() {
                 </li>
                 <li>
                   <Link href="/integrations" className="hover:text-white">
-                    Integrations
+                    Integrasi
                   </Link>
                 </li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Company</h4>
+              <h4 className="font-semibold mb-4">Perusahaan</h4>
               <ul className="space-y-2 text-gray-400">
                 <li>
                   <Link href="/about" className="hover:text-white">
-                    About
+                    Tentang Kami
                   </Link>
                 </li>
                 <li>
@@ -255,44 +249,44 @@ export default function LandingPage() {
                 </li>
                 <li>
                   <Link href="/careers" className="hover:text-white">
-                    Careers
+                    Karir
                   </Link>
                 </li>
                 <li>
                   <Link href="/contact" className="hover:text-white">
-                    Contact
+                    Hubungi
                   </Link>
                 </li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Support</h4>
+              <h4 className="font-semibold mb-4">Dukungan</h4>
               <ul className="space-y-2 text-gray-400">
                 <li>
                   <Link href="/help" className="hover:text-white">
-                    Help Center
+                    Pusat Bantuan
                   </Link>
                 </li>
                 <li>
                   <Link href="/docs" className="hover:text-white">
-                    Documentation
+                    Dokumentasi
                   </Link>
                 </li>
                 <li>
                   <Link href="/privacy" className="hover:text-white">
-                    Privacy Policy
+                    Kebijakan Privasi
                   </Link>
                 </li>
                 <li>
                   <Link href="/terms" className="hover:text-white">
-                    Terms of Service
+                    Syarat dan Ketentuan
                   </Link>
                 </li>
               </ul>
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 ScrumMood. All rights reserved.</p>
+            <p>&copy; 2024 ScrumMood. Semua hak dilindungi.</p>
           </div>
         </div>
       </footer>

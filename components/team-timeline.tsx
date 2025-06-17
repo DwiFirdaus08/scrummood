@@ -10,7 +10,7 @@ export function TeamTimeline() {
     if (!ctx) return
 
     // Mock data for the timeline
-    const timePoints = ["9:00", "9:05", "9:10", "9:15", "9:20", "9:25", "9:30"]
+    const timePoints = ["09.00", "09.05", "09.10", "09.15", "09.20", "09.25", "09.30"]
 
     // Emotion data for each type over time (0-100)
     const happyData = [70, 75, 65, 60, 65, 70, 75]
@@ -98,11 +98,11 @@ export function TeamTimeline() {
 
     // Draw legend
     const legendItems = [
-      { label: "Happy", color: "#4ade80" },
-      { label: "Neutral", color: "#60a5fa" },
-      { label: "Stressed", color: "#facc15" },
-      { label: "Sad", color: "#94a3b8" },
-      { label: "Angry", color: "#f87171" },
+      { label: "Senang", color: "#4ade80" },
+      { label: "Netral", color: "#60a5fa" },
+      { label: "Stres", color: "#facc15" },
+      { label: "Sedih", color: "#94a3b8" },
+      { label: "Marah", color: "#f87171" },
     ]
 
     const legendX = 50

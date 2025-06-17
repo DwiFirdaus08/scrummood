@@ -14,22 +14,22 @@ type ScrumSession = {
 const scrumSessions: ScrumSession[] = [
   {
     id: 1,
-    team: "Backend Team",
-    time: "10:00 AM - 10:15 AM",
+    team: "Tim Backend",
+    time: "10.00 - 10.15",
     participants: 6,
     status: "upcoming",
   },
   {
     id: 2,
-    team: "Design Team",
-    time: "11:00 AM - 11:15 AM",
+    team: "Tim Desain",
+    time: "11.00 - 11.15",
     participants: 4,
     status: "upcoming",
   },
   {
     id: 3,
-    team: "QA Team",
-    time: "12:00 PM - 12:15 PM",
+    team: "Tim QA",
+    time: "12.00 - 12.15",
     participants: 5,
     status: "upcoming",
   },
@@ -48,17 +48,17 @@ export function UpcomingScrums() {
             </div>
             <div className="flex items-center text-sm text-gray-500">
               <Users className="mr-1 h-4 w-4" />
-              {session.participants} participants
+              {session.participants} anggota
             </div>
           </div>
           <div className="flex items-start space-x-2">
             <Button variant="outline" size="sm" className="h-8">
               <Calendar className="mr-1 h-4 w-4" />
-              Schedule
+              Jadwalkan
             </Button>
             <Button size="sm" className="h-8 bg-teal-600 hover:bg-teal-700">
               <Video className="mr-1 h-4 w-4" />
-              Join
+              Gabung
             </Button>
           </div>
         </div>

@@ -21,68 +21,70 @@ type Message = {
 }
 
 export default function ChatPage() {
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      id: 1,
-      sender: "System",
-      senderInitials: "SYS",
-      avatar: "",
-      content: "Welcome to the Frontend Team Daily Scrum chat! The session will begin shortly.",
-      timestamp: "8:55 AM",
-      isSystem: true,
-    },
-    {
-      id: 2,
-      sender: "John Doe",
-      senderInitials: "JD",
-      avatar: "",
-      content: "Good morning everyone! I'm ready for today's session.",
-      timestamp: "8:57 AM",
-    },
-    {
-      id: 3,
-      sender: "Jane Smith",
-      senderInitials: "JS",
-      avatar: "",
-      content: "Morning! I've completed the login page design yesterday.",
-      timestamp: "9:00 AM",
-    },
-    {
-      id: 4,
-      sender: "System",
-      senderInitials: "SYS",
-      avatar: "",
-      content: "The team's mood seems positive today! Great start to the session.",
-      timestamp: "9:02 AM",
-      isSystem: true,
-    },
-    {
-      id: 5,
-      sender: "Mike Johnson",
-      senderInitials: "MJ",
-      avatar: "",
-      content: "I'm still working on the API integration. Having some issues with authentication.",
-      timestamp: "9:03 AM",
-    },
-    {
-      id: 6,
-      sender: "Sarah Williams",
-      senderInitials: "SW",
-      avatar: "",
-      content: "I can help with that Mike. Let's discuss after the meeting.",
-      timestamp: "9:04 AM",
-    },
-    {
-      id: 7,
-      sender: "System",
-      senderInitials: "SYS",
-      avatar: "",
-      content:
-        "Suggestion: Mike's stress level seems elevated. Consider offering assistance with the authentication issue.",
-      timestamp: "9:05 AM",
-      isSystem: true,
-    },
-  ])
+  const [messages, setMessages] = useState<Message[]>(
+    [
+      {
+        id: 1,
+        sender: "Sistem",
+        senderInitials: "SYS",
+        avatar: "",
+        content: "Selamat datang di chat Daily Scrum Tim Frontend! Sesi akan dimulai sebentar lagi.",
+        timestamp: "08.55",
+        isSystem: true,
+      },
+      {
+        id: 2,
+        sender: "John Doe",
+        senderInitials: "JD",
+        avatar: "",
+        content: "Selamat pagi semuanya! Saya siap untuk sesi hari ini.",
+        timestamp: "08.57",
+      },
+      {
+        id: 3,
+        sender: "Jane Smith",
+        senderInitials: "JS",
+        avatar: "",
+        content: "Pagi! Saya sudah menyelesaikan desain halaman login kemarin.",
+        timestamp: "09.00",
+      },
+      {
+        id: 4,
+        sender: "Sistem",
+        senderInitials: "SYS",
+        avatar: "",
+        content: "Suasana hati tim tampak positif hari ini! Awal yang baik untuk sesi ini.",
+        timestamp: "09.02",
+        isSystem: true,
+      },
+      {
+        id: 5,
+        sender: "Mike Johnson",
+        senderInitials: "MJ",
+        avatar: "",
+        content: "Saya masih mengerjakan integrasi API. Mengalami beberapa masalah dengan otentikasi.",
+        timestamp: "09.03",
+      },
+      {
+        id: 6,
+        sender: "Sarah Williams",
+        senderInitials: "SW",
+        avatar: "",
+        content: "Saya bisa membantu dengan itu Mike. Mari kita bahas setelah rapat.",
+        timestamp: "09.04",
+      },
+      {
+        id: 7,
+        sender: "Sistem",
+        senderInitials: "SYS",
+        avatar: "",
+        content:
+          "Saran: Tingkat stres Mike tampak meningkat. Pertimbangkan untuk menawarkan bantuan dengan masalah otentikasi.",
+        timestamp: "09.05",
+        isSystem: true,
+      },
+    ]
+  )
 
   const [newMessage, setNewMessage] = useState("")
 
@@ -106,14 +108,14 @@ export default function ChatPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold tracking-tight">Team Chat</h1>
-        <p className="text-muted-foreground">Communicate with your team during Scrum sessions</p>
+        <h1 className="text-2xl font-bold tracking-tight">Chat Tim</h1>
+        <p className="text-muted-foreground">Berkomunikasi dengan tim Anda selama sesi Scrum</p>
       </div>
 
       <Card className="h-[calc(100vh-220px)]">
         <CardHeader>
-          <CardTitle>Frontend Team Daily Scrum</CardTitle>
-          <CardDescription>Session started at 9:00 AM • 5 participants • Active</CardDescription>
+          <CardTitle>Daily Scrum Tim Frontend</CardTitle>
+          <CardDescription> Sesi dimulai pada 09.00 • 5 peserta • Aktif</CardDescription>
         </CardHeader>
         <CardContent className="p-0 flex flex-col h-[calc(100%-5rem)]">
           <ScrollArea className="flex-1 p-4">
@@ -151,7 +153,7 @@ export default function ChatPage() {
                 <Smile className="h-5 w-5" />
               </Button>
               <Input
-                placeholder="Type your message..."
+                placeholder="Ketik pesan Anda..."
                 value={newMessage}
                 onChange={(e) => setNewMessage(e.target.value)}
                 className="flex-1"
@@ -162,6 +164,7 @@ export default function ChatPage() {
                 disabled={!newMessage.trim()}
               >
                 <Send className="h-4 w-4" />
+                Kirim
               </Button>
             </form>
           </div>

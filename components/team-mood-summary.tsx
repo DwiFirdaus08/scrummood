@@ -75,7 +75,7 @@ export function TeamMoodSummary() {
       ))}
 
       <div className="pt-4 border-t">
-        <h4 className="text-sm font-medium mb-2">Team Average</h4>
+        <h4 className="text-sm font-medium mb-2">Rata-rata Tim</h4>
         <div className="grid grid-cols-5 gap-2 text-center">
           <div className="flex flex-col items-center">
             <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-lg mb-1">😊</div>

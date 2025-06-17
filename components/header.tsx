@@ -39,24 +39,24 @@ export function Header() {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
-                <DropdownMenuLabel>Notifications</DropdownMenuLabel>
+                <DropdownMenuLabel>Notifikasi</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
                   <div className="flex flex-col">
-                    <span className="font-medium">Daily Scrum in 15 minutes</span>
-                    <span className="text-xs text-gray-500">Scheduled for 10:00 AM</span>
+                    <span className="font-medium">Daily Scrum dalam 15 menit</span>
+                    <span className="text-xs text-gray-500">Dijadwalkan pukul 10.00</span>
                   </div>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <div className="flex flex-col">
-                    <span className="font-medium">Team mood alert</span>
-                    <span className="text-xs text-gray-500">Stress levels rising in the team</span>
+                    <span className="font-medium">Peringatan suasana tim</span>
+                    <span className="text-xs text-gray-500">Tingkat stres tim meningkat</span>
                   </div>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <div className="flex flex-col">
-                    <span className="font-medium">New suggestion</span>
-                    <span className="text-xs text-gray-500">Consider a 5-minute break</span>
+                    <span className="font-medium">Saran baru</span>
+                    <span className="text-xs text-gray-500">Pertimbangkan istirahat 5 menit</span>
                   </div>
                 </DropdownMenuItem>
               </DropdownMenuContent>
