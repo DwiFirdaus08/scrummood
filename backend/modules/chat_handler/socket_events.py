@@ -101,3 +101,6 @@ def handle_leave_session(data):
         # Leave session room
         leave_room(f'session_{session_id}')
         
+    except Exception as e:
+        emit('error', {'message': f'Failed to leave session: {str(e)}'})
+        

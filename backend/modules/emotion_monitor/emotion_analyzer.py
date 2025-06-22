@@ -1,11 +1,15 @@
 import re
-import json
+import google.generativeai as genai
+import os
+from dotenv import load_dotenv
 from typing import Dict, Any, Optional
 from datetime import datetime
 from backend.models.emotion import *
 from backend.models.session import Session
 from backend.models.user import UserRole
 from backend.app import db
+from flask import current_app
+import json
 
 class EmotionAnalyzer:
     """
@@ -15,6 +19,8 @@ class EmotionAnalyzer:
     """
     
     def __init__(self):
+        load_dotenv()
+        genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
         # Initialize emotion patterns and weights
         self.emotion_patterns = {
             'happy': [
@@ -61,63 +67,50 @@ class EmotionAnalyzer:
         """
         Analyze emotion from text input
         """
-        if not text or not isinstance(text, str):
-            return None
-        
-        text_lower = text.lower()
-        emotion_scores = {}
-        
-        # Calculate base emotion scores
-        for emotion, patterns in self.emotion_patterns.items():
-            score = 0
-            for pattern in patterns:
-                matches = re.findall(pattern, text_lower, re.IGNORECASE)
-                score += len(matches) * 0.3
-            emotion_scores[emotion] = min(score, 1.0)
-        
-        # Apply intensity modifiers
-        for modifier, multiplier in self.intensity_modifiers.items():
-            if modifier in text_lower:
-                for emotion in emotion_scores:
-                    if emotion_scores[emotion] > 0:
-                        emotion_scores[emotion] = min(emotion_scores[emotion] * multiplier, 1.0)
-        
-        # Find dominant emotion
-        if not any(score > 0 for score in emotion_scores.values()):
-            # Default to neutral if no patterns match
-            dominant_emotion = 'neutral'
-            intensity = 0.5
-            confidence = 0.3
-        else:
-            dominant_emotion = max(emotion_scores, key=emotion_scores.get)
-            intensity = emotion_scores[dominant_emotion]
-            confidence = min(intensity * 0.8 + 0.2, 1.0)
-        
-        # Calculate sentiment score (-1 to 1)
-        positive_emotions = ['happy', 'excited']
-        negative_emotions = ['sad', 'angry', 'stressed']
-        
-        positive_score = sum(emotion_scores.get(e, 0) for e in positive_emotions)
-        negative_score = sum(emotion_scores.get(e, 0) for e in negative_emotions)
-        
-        if positive_score + negative_score > 0:
-            sentiment = (positive_score - negative_score) / (positive_score + negative_score)
-        else:
-            sentiment = 0.0
-        
-        return {
-            'emotion': dominant_emotion,
-            'intensity': round(intensity, 3),
-            'confidence': round(confidence, 3),
-            'sentiment_score': round(sentiment, 3),
-            'all_emotions': emotion_scores,
-            'metadata': {
-                'text_length': len(text),
-                'word_count': len(text.split()),
-                'analysis_timestamp': datetime.utcnow().isoformat(),
-                'analyzer_version': '1.0.0'
+        try:
+            model = genai.GenerativeModel('gemini-pro')
+            prompt_content = f'''
+Analyze the sentiment and dominant emotion of the following text.
+Provide the output in a JSON format. The JSON should have the following keys:
+- "emotion": The single dominant emotion (string, one of: happy, sad, angry, stressed, neutral, confused, excited).
+- "intensity": The intensity of the dominant emotion (float, 0.0 to 1.0).
+- "confidence": The confidence of your analysis (float, 0.0 to 1.0).
+- "sentiment_score": The overall sentiment score (-1.0 for very negative, 1.0 for very positive, 0.0 for neutral).
+- "all_emotions_breakdown": An optional dictionary showing scores for all emotions (e.g., {"happy": 0.7, "neutral": 0.2, ...}). If not available, omit or leave empty.
+- "explanation": A short textual explanation of the analysis.
+
+Text: "{text}"
+'''
+            response = model.generate_content(prompt_content)
+            response_text = response.text.strip()
+            parsed_json = json.loads(response_text)
+            return {
+                'emotion': parsed_json.get('emotion', 'neutral'),
+                'intensity': parsed_json.get('intensity', 0.5),
+                'confidence': parsed_json.get('confidence', 0.5),
+                'sentiment_score': parsed_json.get('sentiment_score', 0.0),
+                'all_emotions': parsed_json.get('all_emotions_breakdown', {}),
+                'metadata': {
+                    'gemini_raw_response': response_text,
+                    'explanation': parsed_json.get('explanation', 'No explanation provided.'),
+                    'analysis_timestamp': datetime.utcnow().isoformat(),
+                    'analyzer_version': 'Gemini-1.0'
+                }
             }
-        }
+        except Exception as e:
+            current_app.logger.error(f"Error during Gemini text analysis: {e}")
+            return {
+                'emotion': 'neutral',
+                'intensity': 0.5,
+                'confidence': 0.1,
+                'sentiment_score': 0.0,
+                'all_emotions': {},
+                'metadata': {
+                    'error': str(e),
+                    'analysis_timestamp': datetime.utcnow().isoformat(),
+                    'analyzer_version': 'Fallback-1.0'
+                }
+            }
     
     def analyze_voice(self, audio_features: Dict[str, Any]) -> Optional[Dict[str, Any]]:
         """
