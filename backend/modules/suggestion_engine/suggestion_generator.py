@@ -1,6 +1,6 @@
 from typing import List, Dict, Any
-from models.emotion import EmotionData, EmotionType
-from models.session import Session
+from backend.models.emotion import EmotionData, EmotionType
+from backend.models.session import Session
 from datetime import datetime, timedelta
 import statistics
 

@@ -1,10 +1,10 @@
 from flask import request, jsonify, current_app
 from flask_jwt_extended import jwt_required, get_jwt_identity
-from models.suggestion import AISuggestion, SuggestionType, SuggestionStatus
-from models.emotion import EmotionData
-from models.session import Session
-from models.user import User
-from app import db, socketio
+from backend.models.suggestion import AISuggestion, SuggestionType, SuggestionStatus
+from backend.models.emotion import EmotionData
+from backend.models.session import Session
+from backend.models.user import User
+from backend.app import db, socketio
 from . import suggestion_bp
 from .suggestion_generator import SuggestionGenerator
 from datetime import datetime, timedelta

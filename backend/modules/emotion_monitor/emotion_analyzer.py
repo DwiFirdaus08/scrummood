@@ -276,11 +276,6 @@ class EmotionAnalyzer:
             recommendations.append({
                 'type': 'energizer',
                 'priority': 'medium',
-                'message': 'Team energy seemsLet me continue from where the text was cut off:
-
-```python
-                'type': 'energizer',
-                'priority': 'medium',
                 'message': 'Team energy seems low. Consider a quick team energizer activity.'
             })
         
@@ -295,7 +290,7 @@ class EmotionAnalyzer:
             })
         
         # Low emotional stability
-        if insights.get('emotional_stability', 1.0) &lt; 0.5:
+        if insights.get('emotional_stability', 1.0) < 0.5:
             recommendations.append({
                 'type': 'discussion',
                 'priority': 'medium',

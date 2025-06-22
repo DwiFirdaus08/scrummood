@@ -4,7 +4,7 @@ from flask_migrate import Migrate
 from flask_jwt_extended import JWTManager
 from flask_cors import CORS
 from flask_socketio import SocketIO
-from config import Config
+from .config import Config
 import logging
 from datetime import datetime
 
@@ -30,24 +30,15 @@ def create_app(config_class=Config):
         logging.basicConfig(level=logging.INFO)
     
     # Register blueprints
-    from modules.auth import auth_bp
-    from modules.emotion_monitor import emotion_bp
-    from modules.suggestion_engine import suggestion_bp
-    from modules.journal_manager import journal_bp
-    from modules.chat_handler import chat_bp
-    from modules.dashboard_manager import dashboard_bp
-    from modules.session_scheduler import session_bp
-    from modules.session_logger import logger_bp
-    from modules.reflection import reflection_bp
-    
+    from .modules.auth import auth_bp
+    from .modules.emotion_monitor import emotion_bp
+    from .modules.suggestion_engine import suggestion_bp
+    from .modules.chat_handler import chat_bp
+    from .modules.reflection import reflection_bp
     app.register_blueprint(auth_bp, url_prefix='/api/auth')
     app.register_blueprint(emotion_bp, url_prefix='/api/emotions')
     app.register_blueprint(suggestion_bp, url_prefix='/api/suggestions')
-    app.register_blueprint(journal_bp, url_prefix='/api/journals')
     app.register_blueprint(chat_bp, url_prefix='/api/chat')
-    app.register_blueprint(dashboard_bp, url_prefix='/api/dashboard')
-    app.register_blueprint(session_bp, url_prefix='/api/sessions')
-    app.register_blueprint(logger_bp, url_prefix='/api/logs')
     app.register_blueprint(reflection_bp, url_prefix='/api/reflections')
     
     # Health check endpoint
