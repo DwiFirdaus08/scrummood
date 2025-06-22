@@ -1,4 +1,4 @@
-from app import db
+from backend.app import db
 from datetime import datetime
 from enum import Enum
 
@@ -41,7 +41,7 @@ class Reminder(db.Model):
     
     # Metadata
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
-    metadata = db.Column(db.JSON)
+    extra_data = db.Column('metadata', db.JSON)
     
     def to_dict(self):
         return {
@@ -58,5 +58,5 @@ class Reminder(db.Model):
             'notify_push': self.notify_push,
             'notify_in_app': self.notify_in_app,
             'created_at': self.created_at.isoformat(),
-            'metadata': self.metadata
+            'metadata': self.extra_data
         }

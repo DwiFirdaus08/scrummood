@@ -1,13 +1,14 @@
 from flask import request, jsonify, current_app
 from flask_jwt_extended import jwt_required, get_jwt_identity
-from models.emotion import EmotionData
-from models.session import Session, SessionParticipant
-from models.user import User
-from models.journal import Journal
-from app import db
+from backend.models.emotion import EmotionData
+from backend.models.session import Session, SessionParticipant
+from backend.models.user import User
+from backend.models.journal import Journal
+from backend.app import db
 from . import reflection_bp
-from modules.suggestion_engine.suggestion_generator import SuggestionGenerator
+from backend.modules.suggestion_engine.suggestion_generator import SuggestionGenerator
 from datetime import datetime, timedelta
+import statistics
 
 # Initialize suggestion generator for reflection capabilities
 suggestion_generator = SuggestionGenerator()
@@ -104,9 +105,9 @@ def get_team_reflection(session_id):
             'session_date': session.actual_start.isoformat() if session.actual_start else session.scheduled_start.isoformat(),
             'participant_count': len(participants),
             'emotion_count': len(emotions),
-            'team_emotion_summary': self._generate_team_emotion_summary(emotions),
+            'team_emotion_summary': _generate_team_emotion_summary(emotions),
             'participant_insights': [],
-            'team_insights': self._generate_team_insights(emotions, participants),
+            'team_insights': _generate_team_insights(emotions, participants),
             'generated_at': datetime.utcnow().isoformat()
         }
         
@@ -122,7 +123,7 @@ def get_team_reflection(session_id):
             participant_reflection = {
                 'participant_id': f"P{participant.id}",  # Anonymized ID
                 'emotion_count': len(user_emotions),
-                'dominant_emotion': self._get_dominant_emotion(user_emotions),
+                'dominant_emotion': _get_dominant_emotion(user_emotions),
                 'participation_score': participant.participation_score,
                 'message_count': participant.message_count,
                 'joined_at': participant.joined_at.isoformat() if participant.joined_at else None,
@@ -324,44 +325,19 @@ def _generate_team_insights(emotions, participants):
     positive_percentage = len(positive_emotions) / len(emotions) if emotions else 0
     negative_percentage = len(negative_emotions) / len(emotions) if emotions else 0
     
-    if positive_percentage > 0.6:
-        insights.append("The team maintained a predominantly positive emotional state during this session.")
-    elif negative_percentage > 0.4:
-        insights.append("The team experienced significant negative emotions during this session.")
-    
-    # Analyze emotional alignment
-    if len(participants) > 1:
-        # Group emotions by user and time
-        emotions_by_user = {}
-        for emotion in emotions:
-            if emotion.user_id not in emotions_by_user:
-                emotions_by_user[emotion.user_id] = []
-            emotions_by_user[emotion.user_id].append(emotion)
-        
-        # Check if emotions were aligned across team members
-        if len(emotions_by_user) > 1:
-            dominant_emotions = []
-            for user_id, user_emotions in emotions_by_user.items():
-                if user_emotions:
-                    dominant_emotions.append(_get_dominant_emotion(user_emotions))
-            
-            if len(set(dominant_emotions)) == 1:
-                insights.append("The team showed strong emotional alignment, with most members sharing similar emotional states.")
-            elif len(set(dominant_emotions)) > len(dominant_emotions) * 0.7:
-                insights.append("The team showed significant emotional diversity, with members experiencing different emotional states.")
+    if positive_percentage > 0.7:
+        insights.append("The team experienced predominantly positive emotions.")
+    elif negative_percentage > 0.7:
+        insights.append("The team experienced predominantly negative emotions.")
     
     return insights
 
 def _get_dominant_emotion(emotions):
-    """Determine the dominant emotion from a list of emotions"""
     if not emotions:
         return "neutral"
-    
     emotion_counts = {}
-    for emotion in emotions:
-        emotion_type = emotion.emotion_type.value
-        if emotion_type not in emotion_counts:
-            emotion_counts[emotion_type] = 0
-        emotion_counts[emotion_type] += 1
-    
-    return max(emotion_counts, key=emotion_counts.get)
+    for e in emotions:
+        emotion = getattr(e, 'emotion', None)
+        if emotion:
+            emotion_counts[emotion] = emotion_counts.get(emotion, 0) + 1
+    return max(emotion_counts, key=emotion_counts.get) if emotion_counts else "neutral"

@@ -1,4 +1,4 @@
-from app import db
+from backend.app import db
 from datetime import datetime
 from enum import Enum
 
@@ -18,7 +18,7 @@ class ChatMessage(db.Model):
     # Message content
     content = db.Column(db.Text, nullable=False)
     message_type = db.Column(db.Enum(MessageType), default=MessageType.TEXT)
-    metadata = db.Column(db.JSON)  # Store additional data (emotion info, etc.)
+    extra_data = db.Column('metadata', db.JSON)  # Store additional data (emotion info, etc.)
     
     # Analysis
     emotion_detected = db.Column(db.String(50))
@@ -37,7 +37,7 @@ class ChatMessage(db.Model):
             'sender_id': self.sender_id,
             'content': self.content,
             'message_type': self.message_type.value,
-            'metadata': self.metadata,
+            'metadata': self.extra_data,
             'emotion_detected': self.emotion_detected,
             'sentiment_score': self.sentiment_score,
             'timestamp': self.timestamp.isoformat(),

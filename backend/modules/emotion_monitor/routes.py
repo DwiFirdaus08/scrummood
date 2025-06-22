@@ -2,7 +2,7 @@ from flask import request, jsonify, current_app
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from backend.models.emotion import EmotionData, EmotionType, AnalysisSource
 from backend.models.session import Session
-from backend.models.user import User
+from backend.models.user import User, UserRole
 from backend.app import db, socketio
 from . import emotion_bp
 from .emotion_analyzer import EmotionAnalyzer

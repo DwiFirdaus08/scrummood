@@ -4,9 +4,10 @@ from flask_migrate import Migrate
 from flask_jwt_extended import JWTManager
 from flask_cors import CORS
 from flask_socketio import SocketIO
-from .config import Config
+from backend.config import Config
 import logging
 from datetime import datetime
+from dotenv import load_dotenv
 
 # Initialize extensions
 db = SQLAlchemy()
@@ -30,11 +31,11 @@ def create_app(config_class=Config):
         logging.basicConfig(level=logging.INFO)
     
     # Register blueprints
-    from .modules.auth import auth_bp
-    from .modules.emotion_monitor import emotion_bp
-    from .modules.suggestion_engine import suggestion_bp
-    from .modules.chat_handler import chat_bp
-    from .modules.reflection import reflection_bp
+    from backend.modules.auth import auth_bp
+    from backend.modules.emotion_monitor import emotion_bp
+    from backend.modules.suggestion_engine import suggestion_bp
+    from backend.modules.chat_handler import chat_bp
+    from backend.modules.reflection import reflection_bp
     app.register_blueprint(auth_bp, url_prefix='/api/auth')
     app.register_blueprint(emotion_bp, url_prefix='/api/emotions')
     app.register_blueprint(suggestion_bp, url_prefix='/api/suggestions')
@@ -53,5 +54,6 @@ def create_app(config_class=Config):
     return app
 
 if __name__ == '__main__':
+    load_dotenv()
     app = create_app()
     socketio.run(app, debug=True, host='0.0.0.0', port=5000)

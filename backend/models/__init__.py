@@ -1,3 +1,4 @@
+from backend.app import db
 from .user import User, Team, TeamMembership
 from .emotion import EmotionData, EmotionType
 from .session import Session, SessionParticipant

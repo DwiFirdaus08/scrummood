@@ -1,8 +1,10 @@
 from typing import List, Dict, Any
 from backend.models.emotion import EmotionData, EmotionType
 from backend.models.session import Session
+from backend.models.suggestion import *
 from datetime import datetime, timedelta
 import statistics
+from backend.app import db
 
 class SuggestionGenerator:
     """

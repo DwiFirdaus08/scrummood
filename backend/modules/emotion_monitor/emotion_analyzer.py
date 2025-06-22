@@ -2,6 +2,10 @@ import re
 import json
 from typing import Dict, Any, Optional
 from datetime import datetime
+from backend.models.emotion import *
+from backend.models.session import Session
+from backend.models.user import UserRole
+from backend.app import db
 
 class EmotionAnalyzer:
     """

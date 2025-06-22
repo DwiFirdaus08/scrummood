@@ -1,11 +1,11 @@
 from flask import request
 from flask_socketio import emit, join_room, leave_room
 from flask_jwt_extended import decode_token
-from app import socketio, db
-from models.chat import ChatMessage, MessageType
-from models.session import Session, SessionParticipant
-from models.user import User
-from modules.emotion_monitor.emotion_analyzer import EmotionAnalyzer
+from backend.app import socketio, db
+from backend.models.chat import ChatMessage, MessageType
+from backend.models.session import Session, SessionParticipant
+from backend.models.user import User
+from backend.modules.emotion_monitor.emotion_analyzer import EmotionAnalyzer
 from datetime import datetime
 import json
 
@@ -92,3 +92,12 @@ def handle_leave_session(data):
         if not user_id:
             emit('error', {'message': 'Authentication required'})
             return
+        
+        session_id = data.get('session_id')
+        if not session_id:
+            emit('error', {'message': 'session_id is required'})
+            return
+        
+        # Leave session room
+        leave_room(f'session_{session_id}')
+        
