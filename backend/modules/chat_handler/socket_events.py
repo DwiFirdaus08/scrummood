@@ -101,6 +101,24 @@ def handle_leave_session(data):
         # Leave session room
         leave_room(f'session_{session_id}')
         
+        # Update participant status
+        participant = SessionParticipant.query.filter_by(
+            session_id=session_id,
+            user_id=user_id
+        ).first()
+        if participant:
+            participant.is_present = False
+            participant.left_at = datetime.utcnow()
+            db.session.commit()
+        
+        # Notify others in the session
+        user = User.query.get(user_id)
+        emit('user_left', {
+            'user_id': user_id,
+            'username': user.username if user else 'Unknown',
+            'timestamp': datetime.utcnow().isoformat()
+        }, room=f'session_{session_id}', include_self=False)
+        
+        emit('leave_session_response', {'status': 'left', 'session_id': session_id})
     except Exception as e:
         emit('error', {'message': f'Failed to leave session: {str(e)}'})
-        

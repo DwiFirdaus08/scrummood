@@ -1,11 +1,12 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Brain, Users, TrendingUp, Clock } from "lucide-react"
+import io, { Socket } from "socket.io-client"
 
 interface EmotionData {
   happy: number
@@ -23,6 +24,7 @@ interface LiveEmotionTrackerProps {
 }
 
 export function LiveEmotionTracker({ currentUserEmotions, currentUserFaceDetected }: LiveEmotionTrackerProps) {
+  const socketRef = useRef<Socket | null>(null)
   const [teamEmotions, setTeamEmotions] = useState([
     {
       id: "user-1",
@@ -107,41 +109,88 @@ export function LiveEmotionTracker({ currentUserEmotions, currentUserFaceDetecte
     }
   }, [currentUserEmotions, currentUserFaceDetected])
 
-  // --- MOCK EMOTION SIMULATION LOGIC FOR DEMO PURPOSES ---
+  // --- SOCKET.IO REAL-TIME EMOTION TRACKING ---
   useEffect(() => {
-    // Only simulate for non-current users
-    const interval = setInterval(() => {
+    // Connect to backend Socket.IO server
+    if (!socketRef.current) {
+      // Ganti URL di bawah sesuai backend Anda
+      socketRef.current = io("http://localhost:5000", {
+        transports: ["websocket"],
+        query: {
+          token: localStorage.getItem("access_token") || "",
+        },
+      })
+    }
+    const socket = socketRef.current
+
+    // Join session room (ganti session_id sesuai kebutuhan)
+    const sessionId = localStorage.getItem("current_session_id") || "1"
+    socket.emit("join_session", { session_id: sessionId })
+
+    // Listen for real-time emotion updates
+    socket.on("emotion_update", (payload) => {
+      // payload: { session_id, user_id, emotion }
+      setTeamEmotions((prev) => {
+        // Cari user yang sesuai, update emosi dan faceDetected=true
+        const found = prev.find((m) => m.id === payload.user_id || m.id === `user-${payload.user_id}`)
+        if (found) {
+          return prev.map((m) =>
+            m.id === found.id
+              ? {
+                  ...m,
+                  emotions: payload.emotion,
+                  faceDetected: true,
+                }
+              : m,
+          )
+        } else {
+          // Tambahkan user baru jika belum ada
+          return [
+            ...prev,
+            {
+              id: payload.user_id,
+              name: payload.username || `User ${payload.user_id}`,
+              avatar: payload.username ? payload.username.slice(0, 2).toUpperCase() : payload.user_id,
+              emotions: payload.emotion,
+              faceDetected: true,
+              isCurrentUser: false,
+            },
+          ]
+        }
+      })
+    })
+
+    // Listen for user join/leave events (opsional, update presence)
+    socket.on("user_joined", (payload) => {
+      // Tambahkan user ke teamEmotions jika belum ada
+      setTeamEmotions((prev) => {
+        if (prev.some((m) => m.id === payload.user_id || m.id === `user-${payload.user_id}`)) return prev
+        return [
+          ...prev,
+          {
+            id: payload.user_id,
+            name: payload.username || `User ${payload.user_id}`,
+            avatar: payload.username ? payload.username.slice(0, 2).toUpperCase() : payload.user_id,
+            emotions: { happy: 0, sad: 0, angry: 0, fearful: 0, disgusted: 0, surprised: 0, neutral: 1 },
+            faceDetected: false,
+            isCurrentUser: false,
+          },
+        ]
+      })
+    })
+    socket.on("user_left", (payload) => {
       setTeamEmotions((prev) =>
-        prev.map((member) => {
-          if (member.isCurrentUser) return member
-          // Randomly toggle faceDetected (simulate camera on/off)
-          const faceDetected = Math.random() > 0.1
-          // Randomly generate new mock emotions
-          const randomEmotions: EmotionData = {
-            happy: Math.random(),
-            sad: Math.random(),
-            angry: Math.random(),
-            fearful: Math.random(),
-            disgusted: Math.random(),
-            surprised: Math.random(),
-            neutral: Math.random(),
-          }
-          // Normalize so total = 1
-          const sum = Object.values(randomEmotions).reduce((a, b) => a + b, 0)
-          Object.keys(randomEmotions).forEach((key) => {
-            randomEmotions[key as keyof EmotionData] = randomEmotions[key as keyof EmotionData] / sum
-          })
-          return {
-            ...member,
-            emotions: randomEmotions,
-            faceDetected,
-          }
-        })
+        prev.map((m) =>
+          m.id === payload.user_id || m.id === `user-${payload.user_id}` ? { ...m, faceDetected: false } : m,
+        ),
       )
-    }, 3000)
-    return () => clearInterval(interval)
+    })
+
+    return () => {
+      socket.emit("leave_session", { session_id: sessionId })
+      socket.disconnect()
+    }
   }, [])
-  // --- END MOCK EMOTION SIMULATION LOGIC ---
 
   const getEmotionColor = (emotion: string) => {
     const colors = {
